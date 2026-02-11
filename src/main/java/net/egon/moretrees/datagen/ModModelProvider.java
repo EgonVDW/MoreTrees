@@ -1,8 +1,10 @@
 package net.egon.moretrees.datagen;
 
+import net.egon.moretrees.block.ModBlockFamilies;
 import net.egon.moretrees.block.ModBlocks;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.client.data.BlockStateModelGeneratorHelper;
 import net.minecraft.client.data.BlockStateModelGenerator;
 import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
@@ -30,9 +32,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSingleton(ModBlocks.BEECH_WOOD, TexturedModel.CUBE_COLUMN);
         blockStateModelGenerator.registerSingleton(ModBlocks.STRIPPED_BEECH_WOOD, TexturedModel.CUBE_COLUMN);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MAPLE_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHESTNUT_PLANKS);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BEECH_PLANKS);
+        BlockStateModelGeneratorHelper.registerCubeAllFamily(blockStateModelGenerator, ModBlockFamilies.CHESTNUT_FAMILY);
+        BlockStateModelGeneratorHelper.registerCubeAllFamily(blockStateModelGenerator, ModBlockFamilies.MAPLE_FAMILY);
+        BlockStateModelGeneratorHelper.registerCubeAllFamily(blockStateModelGenerator, ModBlockFamilies.BEECH_FAMILY);
 
         blockStateModelGenerator.registerSingleton(ModBlocks.MAPLE_LEAVES, TexturedModel.LEAVES);
         blockStateModelGenerator.registerSingleton(ModBlocks.CHESTNUT_LEAVES, TexturedModel.LEAVES);

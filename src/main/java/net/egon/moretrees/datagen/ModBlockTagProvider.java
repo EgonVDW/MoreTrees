@@ -30,7 +30,31 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STRIPPED_BEECH_WOOD)
                 .add(ModBlocks.CHESTNUT_PLANKS)
                 .add(ModBlocks.MAPLE_PLANKS)
-                .add(ModBlocks.BEECH_PLANKS);
+                .add(ModBlocks.BEECH_PLANKS)
+                .add(ModBlocks.CHESTNUT_SLAB)
+                .add(ModBlocks.MAPLE_SLAB)
+                .add(ModBlocks.BEECH_SLAB)
+                .add(ModBlocks.CHESTNUT_STAIRS)
+                .add(ModBlocks.MAPLE_STAIRS)
+                .add(ModBlocks.BEECH_STAIRS)
+                .add(ModBlocks.CHESTNUT_FENCE)
+                .add(ModBlocks.MAPLE_FENCE)
+                .add(ModBlocks.BEECH_FENCE)
+                .add(ModBlocks.CHESTNUT_FENCE_GATE)
+                .add(ModBlocks.MAPLE_FENCE_GATE)
+                .add(ModBlocks.BEECH_FENCE_GATE)
+                .add(ModBlocks.CHESTNUT_DOOR)
+                .add(ModBlocks.MAPLE_DOOR)
+                .add(ModBlocks.BEECH_DOOR)
+                .add(ModBlocks.CHESTNUT_TRAPDOOR)
+                .add(ModBlocks.MAPLE_TRAPDOOR)
+                .add(ModBlocks.BEECH_TRAPDOOR)
+                .add(ModBlocks.CHESTNUT_BUTTON)
+                .add(ModBlocks.MAPLE_BUTTON)
+                .add(ModBlocks.BEECH_BUTTON)
+                .add(ModBlocks.CHESTNUT_PRESSURE_PLATE)
+                .add(ModBlocks.MAPLE_PRESSURE_PLATE)
+                .add(ModBlocks.BEECH_PRESSURE_PLATE);
 
         valueLookupBuilder(BlockTags.LOGS)
                 .add(ModBlocks.CHESTNUT_LOG)
@@ -44,6 +68,51 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.CHESTNUT_LEAVES)
                 .add(ModBlocks.MAPLE_LEAVES)
                 .add(ModBlocks.BEECH_LEAVES);
+
+        valueLookupBuilder(BlockTags.PLANKS)
+                .add(ModBlocks.CHESTNUT_PLANKS)
+                .add(ModBlocks.MAPLE_PLANKS)
+                .add(ModBlocks.BEECH_PLANKS);
+
+        valueLookupBuilder(BlockTags.WOODEN_SLABS)
+                .add(ModBlocks.CHESTNUT_SLAB)
+                .add(ModBlocks.MAPLE_SLAB)
+                .add(ModBlocks.BEECH_SLAB);
+
+        valueLookupBuilder(BlockTags.WOODEN_STAIRS)
+                .add(ModBlocks.CHESTNUT_STAIRS)
+                .add(ModBlocks.MAPLE_STAIRS)
+                .add(ModBlocks.BEECH_STAIRS);
+
+        valueLookupBuilder(BlockTags.WOODEN_FENCES)
+                .add(ModBlocks.CHESTNUT_FENCE)
+                .add(ModBlocks.MAPLE_FENCE)
+                .add(ModBlocks.BEECH_FENCE);
+
+        valueLookupBuilder(BlockTags.FENCE_GATES)
+                .add(ModBlocks.CHESTNUT_FENCE_GATE)
+                .add(ModBlocks.MAPLE_FENCE_GATE)
+                .add(ModBlocks.BEECH_FENCE_GATE);
+
+        valueLookupBuilder(BlockTags.WOODEN_DOORS)
+                .add(ModBlocks.CHESTNUT_DOOR)
+                .add(ModBlocks.MAPLE_DOOR)
+                .add(ModBlocks.BEECH_DOOR);
+
+        valueLookupBuilder(BlockTags.WOODEN_TRAPDOORS)
+                .add(ModBlocks.CHESTNUT_TRAPDOOR)
+                .add(ModBlocks.MAPLE_TRAPDOOR)
+                .add(ModBlocks.BEECH_TRAPDOOR);
+
+        valueLookupBuilder(BlockTags.WOODEN_BUTTONS)
+                .add(ModBlocks.CHESTNUT_BUTTON)
+                .add(ModBlocks.MAPLE_BUTTON)
+                .add(ModBlocks.BEECH_BUTTON);
+
+        valueLookupBuilder(BlockTags.WOODEN_PRESSURE_PLATES)
+                .add(ModBlocks.CHESTNUT_PRESSURE_PLATE)
+                .add(ModBlocks.MAPLE_PRESSURE_PLATE)
+                .add(ModBlocks.BEECH_PRESSURE_PLATE);
 
         valueLookupBuilder(BlockTags.LOGS_THAT_BURN)
                 .add(ModBlocks.CHESTNUT_LOG)

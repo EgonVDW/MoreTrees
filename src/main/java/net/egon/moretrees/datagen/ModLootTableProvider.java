@@ -34,6 +34,38 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MAPLE_PLANKS);
         addDrop(ModBlocks.BEECH_PLANKS);
 
+        addDrop(ModBlocks.CHESTNUT_SLAB, slabDrops(ModBlocks.CHESTNUT_SLAB));
+        addDrop(ModBlocks.MAPLE_SLAB, slabDrops(ModBlocks.MAPLE_SLAB));
+        addDrop(ModBlocks.BEECH_SLAB, slabDrops(ModBlocks.BEECH_SLAB));
+
+        addDrop(ModBlocks.CHESTNUT_STAIRS);
+        addDrop(ModBlocks.MAPLE_STAIRS);
+        addDrop(ModBlocks.BEECH_STAIRS);
+
+        addDrop(ModBlocks.CHESTNUT_FENCE);
+        addDrop(ModBlocks.MAPLE_FENCE);
+        addDrop(ModBlocks.BEECH_FENCE);
+
+        addDrop(ModBlocks.CHESTNUT_FENCE_GATE);
+        addDrop(ModBlocks.MAPLE_FENCE_GATE);
+        addDrop(ModBlocks.BEECH_FENCE_GATE);
+
+        addDrop(ModBlocks.CHESTNUT_DOOR, doorDrops(ModBlocks.CHESTNUT_DOOR));
+        addDrop(ModBlocks.MAPLE_DOOR, doorDrops(ModBlocks.MAPLE_DOOR));
+        addDrop(ModBlocks.BEECH_DOOR, doorDrops(ModBlocks.BEECH_DOOR));
+
+        addDrop(ModBlocks.CHESTNUT_TRAPDOOR);
+        addDrop(ModBlocks.MAPLE_TRAPDOOR);
+        addDrop(ModBlocks.BEECH_TRAPDOOR);
+
+        addDrop(ModBlocks.CHESTNUT_BUTTON);
+        addDrop(ModBlocks.MAPLE_BUTTON);
+        addDrop(ModBlocks.BEECH_BUTTON);
+
+        addDrop(ModBlocks.CHESTNUT_PRESSURE_PLATE);
+        addDrop(ModBlocks.MAPLE_PRESSURE_PLATE);
+        addDrop(ModBlocks.BEECH_PRESSURE_PLATE);
+
         addDrop(ModBlocks.CHESTNUT_SAPLING);
         addDrop(ModBlocks.MAPLE_SAPLING);
         addDrop(ModBlocks.BEECH_SAPLING);

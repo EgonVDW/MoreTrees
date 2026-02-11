@@ -3,7 +3,8 @@
 	"package": "net.egon.moretrees.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"ExampleMixin"
+		"ExampleMixin",
+		"VanillaBiomeParametersMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

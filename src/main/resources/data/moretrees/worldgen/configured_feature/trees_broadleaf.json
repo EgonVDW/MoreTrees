@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:random_selector",
+  "config": {
+    "default": "moretrees:chestnut_tree",
+    "features": [
+      {
+        "chance": 0.5,
+        "feature": "moretrees:beech_tree"
+      }
+    ]
+  }
+}

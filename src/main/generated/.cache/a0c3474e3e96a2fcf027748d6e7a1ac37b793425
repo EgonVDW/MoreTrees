@@ -1,5 +1,14 @@
 // 1.21.11	-999999999-01-01T00:00:00	More Trees/Tags for minecraft:block
+b007efb915fd9bcbff1afacecd33281fa5648e78 data/minecraft/tags/block/fence_gates.json
 11f5140a009da26fe3ebf82cab65d35fc6e9c95e data/minecraft/tags/block/leaves.json
 ded6873d1f1e79345b3de99b60806b8fe38876f1 data/minecraft/tags/block/logs.json
 e3d5f26cf3acaed9ca43226446e54b8518649575 data/minecraft/tags/block/logs_that_burn.json
-a6e3f517a9c31a0078a5e8592156f19fcab93d06 data/minecraft/tags/block/mineable/axe.json
+b981dd3e474f90bdc61f2d13d51e9e59c16b8499 data/minecraft/tags/block/mineable/axe.json
+c874a411064644546cd03ae2d5c9d30c8748eac6 data/minecraft/tags/block/planks.json
+27c6f4625d3d4b9b034e032da485a6d028f99505 data/minecraft/tags/block/wooden_buttons.json
+0b4704f6e6f88bffd1ac42df994ac07f605cdbe9 data/minecraft/tags/block/wooden_doors.json
+8ec7ec6fcd1c13a14ff6bdc46cee64a9bdea6f14 data/minecraft/tags/block/wooden_fences.json
+15322601b28bfc2070b77e34adc88ec88e9ce6fc data/minecraft/tags/block/wooden_pressure_plates.json
+5417fdb0e8e6ebf555cc102bd0ccb2fa70fa5d82 data/minecraft/tags/block/wooden_slabs.json
+71fdb65f714b861a3747e1e9039176b78b39b564 data/minecraft/tags/block/wooden_stairs.json
+87a7d1a17e79b6fcf8943729fdf7bf96bd3846db data/minecraft/tags/block/wooden_trapdoors.json

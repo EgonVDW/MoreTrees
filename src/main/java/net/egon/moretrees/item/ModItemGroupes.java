@@ -22,6 +22,14 @@ public class ModItemGroupes {
                         entries.add(ModBlocks.CHESTNUT_WOOD);
                         entries.add(ModBlocks.STRIPPED_CHESTNUT_WOOD);
                         entries.add(ModBlocks.CHESTNUT_PLANKS);
+                        entries.add(ModBlocks.CHESTNUT_SLAB);
+                        entries.add(ModBlocks.CHESTNUT_STAIRS);
+                        entries.add(ModBlocks.CHESTNUT_FENCE);
+                        entries.add(ModBlocks.CHESTNUT_FENCE_GATE);
+                        entries.add(ModBlocks.CHESTNUT_DOOR);
+                        entries.add(ModBlocks.CHESTNUT_TRAPDOOR);
+                        entries.add(ModBlocks.CHESTNUT_BUTTON);
+                        entries.add(ModBlocks.CHESTNUT_PRESSURE_PLATE);
                         entries.add(ModBlocks.CHESTNUT_LEAVES);
                         entries.add(ModBlocks.CHESTNUT_SAPLING);
 
@@ -30,6 +38,14 @@ public class ModItemGroupes {
                         entries.add(ModBlocks.MAPLE_WOOD);
                         entries.add(ModBlocks.STRIPPED_MAPLE_WOOD);
                         entries.add(ModBlocks.MAPLE_PLANKS);
+                        entries.add(ModBlocks.MAPLE_SLAB);
+                        entries.add(ModBlocks.MAPLE_STAIRS);
+                        entries.add(ModBlocks.MAPLE_FENCE);
+                        entries.add(ModBlocks.MAPLE_FENCE_GATE);
+                        entries.add(ModBlocks.MAPLE_DOOR);
+                        entries.add(ModBlocks.MAPLE_TRAPDOOR);
+                        entries.add(ModBlocks.MAPLE_BUTTON);
+                        entries.add(ModBlocks.MAPLE_PRESSURE_PLATE);
                         entries.add(ModBlocks.MAPLE_LEAVES);
                         entries.add(ModBlocks.MAPLE_SAPLING);
 
@@ -38,6 +54,14 @@ public class ModItemGroupes {
                         entries.add(ModBlocks.BEECH_WOOD);
                         entries.add(ModBlocks.STRIPPED_BEECH_WOOD);
                         entries.add(ModBlocks.BEECH_PLANKS);
+                        entries.add(ModBlocks.BEECH_SLAB);
+                        entries.add(ModBlocks.BEECH_STAIRS);
+                        entries.add(ModBlocks.BEECH_FENCE);
+                        entries.add(ModBlocks.BEECH_FENCE_GATE);
+                        entries.add(ModBlocks.BEECH_DOOR);
+                        entries.add(ModBlocks.BEECH_TRAPDOOR);
+                        entries.add(ModBlocks.BEECH_BUTTON);
+                        entries.add(ModBlocks.BEECH_PRESSURE_PLATE);
                         entries.add(ModBlocks.BEECH_LEAVES);
                         entries.add(ModBlocks.BEECH_SAPLING);
                     })
