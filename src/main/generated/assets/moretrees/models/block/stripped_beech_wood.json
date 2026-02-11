@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "moretrees:block/stripped_beech_wood_top",
+    "side": "moretrees:block/stripped_beech_wood_side"
+  }
+}

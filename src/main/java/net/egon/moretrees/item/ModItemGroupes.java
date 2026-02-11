@@ -1,0 +1,49 @@
+package net.egon.moretrees.item;
+
+import net.egon.moretrees.MoreTrees;
+import net.egon.moretrees.block.ModBlocks;
+import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemStack;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.text.Text;
+import net.minecraft.util.Identifier;
+
+public class ModItemGroupes {
+    public static final ItemGroup MORE_TREES_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(MoreTrees.MOD_ID, "moretrees_item_group"),
+            FabricItemGroup.builder()
+                    .icon(() -> new ItemStack(ModBlocks.CHESTNUT_SAPLING))
+                    .displayName(Text.translatable("itemgroup.moretrees_item_group"))
+                    .entries((context, entries) -> {
+                        entries.add(ModBlocks.CHESTNUT_LOG);
+                        entries.add(ModBlocks.STRIPPED_CHESTNUT_LOG);
+                        entries.add(ModBlocks.CHESTNUT_WOOD);
+                        entries.add(ModBlocks.STRIPPED_CHESTNUT_WOOD);
+                        entries.add(ModBlocks.CHESTNUT_PLANKS);
+                        entries.add(ModBlocks.CHESTNUT_LEAVES);
+                        entries.add(ModBlocks.CHESTNUT_SAPLING);
+
+                        entries.add(ModBlocks.MAPLE_LOG);
+                        entries.add(ModBlocks.STRIPPED_MAPLE_LOG);
+                        entries.add(ModBlocks.MAPLE_WOOD);
+                        entries.add(ModBlocks.STRIPPED_MAPLE_WOOD);
+                        entries.add(ModBlocks.MAPLE_PLANKS);
+                        entries.add(ModBlocks.MAPLE_LEAVES);
+                        entries.add(ModBlocks.MAPLE_SAPLING);
+
+                        entries.add(ModBlocks.BEECH_LOG);
+                        entries.add(ModBlocks.STRIPPED_BEECH_LOG);
+                        entries.add(ModBlocks.BEECH_WOOD);
+                        entries.add(ModBlocks.STRIPPED_BEECH_WOOD);
+                        entries.add(ModBlocks.BEECH_PLANKS);
+                        entries.add(ModBlocks.BEECH_LEAVES);
+                        entries.add(ModBlocks.BEECH_SAPLING);
+                    })
+                    .build());
+
+    public static void registerItemGroupes() {
+        MoreTrees.LOGGER.info("Registering ModItemGroupes for " + MoreTrees.MOD_ID);
+    }
+}

@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "moretrees",
+	"version": "${version}",
+	"name": "More Trees",
+	"description": "This mod adds cool new trees!",
+	"authors": [
+		"EgonVDW"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/EgonVDW/MoreTrees"
+	},
+	"license": "MIT",
+	"icon": "assets/moretrees/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.egon.moretrees.MoreTrees"
+		],
+		"fabric-datagen": [
+			"net.egon.moretrees.MoreTreesDataGenerator"
+		]
+	},
+	"mixins": [
+		"moretrees.mixins.json"
+	],
+	"client": [
+		"net.egon.moretrees.MoreTreesClient"
+	],
+	"depends": {
+		"fabricloader": ">=0.18.4",
+		"minecraft": "~1.21.11",
+		"java": ">=21",
+		"fabric-api": "*"
+	}
+}
