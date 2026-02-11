@@ -33,9 +33,9 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHESTNUT_PLANKS);
         blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BEECH_PLANKS);
 
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.MAPLE_LEAVES);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.CHESTNUT_LEAVES);
-        blockStateModelGenerator.registerSimpleCubeAll(ModBlocks.BEECH_LEAVES);
+        blockStateModelGenerator.registerSingleton(ModBlocks.MAPLE_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerSingleton(ModBlocks.CHESTNUT_LEAVES, TexturedModel.LEAVES);
+        blockStateModelGenerator.registerSingleton(ModBlocks.BEECH_LEAVES, TexturedModel.LEAVES);
 
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.MAPLE_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.CHESTNUT_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);

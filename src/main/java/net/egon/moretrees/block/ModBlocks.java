@@ -1,6 +1,7 @@
 package net.egon.moretrees.block;
 
 import net.egon.moretrees.MoreTrees;
+import net.egon.moretrees.world.ModSaplingGenerators;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -57,11 +58,11 @@ public class ModBlocks {
             key -> new TintedParticleLeavesBlock(0.01f, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).registryKey(key)));
 
     public static final Block CHESTNUT_SAPLING = registerBlock("chestnut_sapling",
-            key -> new SaplingBlock(SaplingGenerator.OAK, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).registryKey(key)));
+            key -> new SaplingBlock(ModSaplingGenerators.CHESTNUT, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).registryKey(key)));
     public static final Block MAPLE_SAPLING = registerBlock("maple_sapling",
-            key -> new SaplingBlock(SaplingGenerator.OAK, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).registryKey(key)));
+            key -> new SaplingBlock(ModSaplingGenerators.MAPLE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).registryKey(key)));
     public static final Block BEECH_SAPLING = registerBlock("beech_sapling",
-            key -> new SaplingBlock(SaplingGenerator.OAK, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).registryKey(key)));
+            key -> new SaplingBlock(ModSaplingGenerators.BEECH, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).registryKey(key)));
 
     private static Block registerBlock(String name, Function<RegistryKey<Block>, Block> blockFactory) {
         Identifier id = Identifier.of(MoreTrees.MOD_ID, name);

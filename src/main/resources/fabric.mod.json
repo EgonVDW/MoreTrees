@@ -18,15 +18,15 @@
 		"main": [
 			"net.egon.moretrees.MoreTrees"
 		],
+		"client": [
+			"net.egon.moretrees.MoreTreesClient"
+		],
 		"fabric-datagen": [
 			"net.egon.moretrees.MoreTreesDataGenerator"
 		]
 	},
 	"mixins": [
 		"moretrees.mixins.json"
-	],
-	"client": [
-		"net.egon.moretrees.MoreTreesClient"
 	],
 	"depends": {
 		"fabricloader": ">=0.18.4",
