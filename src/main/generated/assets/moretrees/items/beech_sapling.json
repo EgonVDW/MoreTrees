@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "moretrees:block/beech_sapling"
+    "model": "moretrees:item/beech_sapling"
   }
 }
