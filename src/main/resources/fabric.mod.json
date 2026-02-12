@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "moretrees",
-	"version": "${0.1-alpha}",
+	"version": "${0.1}",
 	"name": "More Trees",
 	"description": "This mod adds cool new trees!",
 	"authors": [
