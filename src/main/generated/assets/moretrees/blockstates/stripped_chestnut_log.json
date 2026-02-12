@@ -1,7 +1,16 @@
 {
   "variants": {
-    "": {
+    "axis=x": {
+      "model": "moretrees:block/stripped_chestnut_log",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
       "model": "moretrees:block/stripped_chestnut_log"
+    },
+    "axis=z": {
+      "model": "moretrees:block/stripped_chestnut_log",
+      "x": 90
     }
   }
 }

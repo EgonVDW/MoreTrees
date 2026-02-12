@@ -17,20 +17,20 @@ public class ModModelProvider extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator blockStateModelGenerator) {
-        blockStateModelGenerator.registerSingleton(ModBlocks.CHESTNUT_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.STRIPPED_CHESTNUT_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.CHESTNUT_WOOD, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.STRIPPED_CHESTNUT_WOOD, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.CHESTNUT_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.STRIPPED_CHESTNUT_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.CHESTNUT_WOOD, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.STRIPPED_CHESTNUT_WOOD, TexturedModel.CUBE_COLUMN);
 
-        blockStateModelGenerator.registerSingleton(ModBlocks.MAPLE_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.STRIPPED_MAPLE_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.MAPLE_WOOD, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.STRIPPED_MAPLE_WOOD, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.MAPLE_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.STRIPPED_MAPLE_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.MAPLE_WOOD, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.STRIPPED_MAPLE_WOOD, TexturedModel.CUBE_COLUMN);
 
-        blockStateModelGenerator.registerSingleton(ModBlocks.BEECH_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.STRIPPED_BEECH_LOG, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.BEECH_WOOD, TexturedModel.CUBE_COLUMN);
-        blockStateModelGenerator.registerSingleton(ModBlocks.STRIPPED_BEECH_WOOD, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.BEECH_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.STRIPPED_BEECH_LOG, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.BEECH_WOOD, TexturedModel.CUBE_COLUMN);
+        blockStateModelGenerator.registerAxisRotated(ModBlocks.STRIPPED_BEECH_WOOD, TexturedModel.CUBE_COLUMN);
 
         BlockStateModelGeneratorHelper.registerCubeAllFamily(blockStateModelGenerator, ModBlockFamilies.CHESTNUT_FAMILY);
         BlockStateModelGeneratorHelper.registerCubeAllFamily(blockStateModelGenerator, ModBlockFamilies.MAPLE_FAMILY);
