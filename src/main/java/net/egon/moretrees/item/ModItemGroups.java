@@ -10,7 +10,7 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
-public class ModItemGroupes {
+public class ModItemGroups {
     public static final ItemGroup MORE_TREES_ITEM_GROUP = Registry.register(Registries.ITEM_GROUP,
             Identifier.of(MoreTrees.MOD_ID, "moretrees_item_group"),
             FabricItemGroup.builder()
@@ -67,7 +67,7 @@ public class ModItemGroupes {
                     })
                     .build());
 
-    public static void registerItemGroupes() {
-        MoreTrees.LOGGER.info("Registering ModItemGroupes for " + MoreTrees.MOD_ID);
+    public static void registerItemGroups() {
+        MoreTrees.LOGGER.info("Registering ModItemGroups for " + MoreTrees.MOD_ID);
     }
 }
