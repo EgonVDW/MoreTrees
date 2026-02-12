@@ -2,6 +2,7 @@ package net.egon.moretrees.datagen;
 
 import net.egon.moretrees.block.ModBlockFamilies;
 import net.egon.moretrees.block.ModBlocks;
+import net.egon.moretrees.item.ModItems;
 import net.egon.moretrees.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
@@ -34,6 +35,15 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 offerBarkBlockRecipe(ModBlocks.STRIPPED_CHESTNUT_WOOD, ModBlocks.STRIPPED_CHESTNUT_LOG);
                 offerBarkBlockRecipe(ModBlocks.STRIPPED_MAPLE_WOOD, ModBlocks.STRIPPED_MAPLE_LOG);
                 offerBarkBlockRecipe(ModBlocks.STRIPPED_BEECH_WOOD, ModBlocks.STRIPPED_BEECH_LOG);
+
+                offerBoatRecipe(ModItems.CHESTNUT_BOAT, ModBlocks.CHESTNUT_PLANKS);
+                offerChestBoatRecipe(ModItems.CHESTNUT_CHEST_BOAT, ModItems.CHESTNUT_BOAT);
+
+                offerBoatRecipe(ModItems.MAPLE_BOAT, ModBlocks.MAPLE_PLANKS);
+                offerChestBoatRecipe(ModItems.MAPLE_CHEST_BOAT, ModItems.MAPLE_BOAT);
+
+                offerBoatRecipe(ModItems.BEECH_BOAT, ModBlocks.BEECH_PLANKS);
+                offerChestBoatRecipe(ModItems.BEECH_CHEST_BOAT, ModItems.BEECH_BOAT);
 
                 generateFamily(ModBlockFamilies.CHESTNUT_FAMILY, FeatureFlags.VANILLA_FEATURES);
                 generateFamily(ModBlockFamilies.MAPLE_FAMILY, FeatureFlags.VANILLA_FEATURES);

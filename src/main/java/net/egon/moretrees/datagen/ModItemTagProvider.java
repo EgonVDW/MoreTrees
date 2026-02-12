@@ -1,6 +1,7 @@
 package net.egon.moretrees.datagen;
 
 import net.egon.moretrees.block.ModBlocks;
+import net.egon.moretrees.item.ModItems;
 import net.egon.moretrees.util.ModTags;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
@@ -34,6 +35,14 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.BEECH_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_BEECH_WOOD.asItem());
 
+        valueLookupBuilder(ItemTags.LOGS)
+                .add(ModBlocks.CHESTNUT_LOG.asItem())
+                .add(ModBlocks.MAPLE_LOG.asItem())
+                .add(ModBlocks.BEECH_LOG.asItem())
+                .add(ModBlocks.STRIPPED_CHESTNUT_LOG.asItem())
+                .add(ModBlocks.STRIPPED_MAPLE_LOG.asItem())
+                .add(ModBlocks.STRIPPED_BEECH_LOG.asItem());
+
         valueLookupBuilder(ItemTags.LOGS_THAT_BURN)
                 .add(ModBlocks.CHESTNUT_LOG.asItem())
                 .add(ModBlocks.MAPLE_LOG.asItem())
@@ -48,10 +57,30 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.STRIPPED_MAPLE_WOOD.asItem())
                 .add(ModBlocks.STRIPPED_BEECH_WOOD.asItem());
 
+        valueLookupBuilder(ItemTags.BOATS)
+                .add(ModItems.CHESTNUT_BOAT)
+                .add(ModItems.MAPLE_BOAT)
+                .add(ModItems.BEECH_BOAT);
+
+        valueLookupBuilder(ItemTags.CHEST_BOATS)
+                .add(ModItems.CHESTNUT_CHEST_BOAT)
+                .add(ModItems.MAPLE_CHEST_BOAT)
+                .add(ModItems.BEECH_CHEST_BOAT);
+
         valueLookupBuilder(ItemTags.PLANKS)
                 .add(ModBlocks.CHESTNUT_PLANKS.asItem())
                 .add(ModBlocks.MAPLE_PLANKS.asItem())
                 .add(ModBlocks.BEECH_PLANKS.asItem());
+
+        valueLookupBuilder(ItemTags.LEAVES)
+                .add(ModBlocks.CHESTNUT_LEAVES.asItem())
+                .add(ModBlocks.MAPLE_LEAVES.asItem())
+                .add(ModBlocks.BEECH_LEAVES.asItem());
+
+        valueLookupBuilder(ItemTags.SAPLINGS)
+                .add(ModBlocks.CHESTNUT_SAPLING.asItem())
+                .add(ModBlocks.MAPLE_SAPLING.asItem())
+                .add(ModBlocks.BEECH_SAPLING.asItem());
 
         valueLookupBuilder(ItemTags.WOODEN_SLABS)
                 .add(ModBlocks.CHESTNUT_SLAB.asItem())

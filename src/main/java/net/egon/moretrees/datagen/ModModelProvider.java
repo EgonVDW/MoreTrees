@@ -2,6 +2,7 @@ package net.egon.moretrees.datagen;
 
 import net.egon.moretrees.block.ModBlockFamilies;
 import net.egon.moretrees.block.ModBlocks;
+import net.egon.moretrees.item.ModItems;
 import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.minecraft.client.data.BlockStateModelGeneratorHelper;
@@ -52,6 +53,13 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModBlocks.CHESTNUT_SAPLING.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModBlocks.MAPLE_SAPLING.asItem(), Models.GENERATED);
         itemModelGenerator.register(ModBlocks.BEECH_SAPLING.asItem(), Models.GENERATED);
+
+        itemModelGenerator.register(ModItems.CHESTNUT_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.CHESTNUT_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAPLE_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.MAPLE_CHEST_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BEECH_BOAT, Models.GENERATED);
+        itemModelGenerator.register(ModItems.BEECH_CHEST_BOAT, Models.GENERATED);
 
     }
 }

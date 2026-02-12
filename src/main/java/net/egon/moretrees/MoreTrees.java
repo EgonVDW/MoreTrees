@@ -1,7 +1,9 @@
 package net.egon.moretrees;
 
 import net.egon.moretrees.block.ModBlocks;
+import net.egon.moretrees.entity.ModEntities;
 import net.egon.moretrees.item.ModItemGroups;
+import net.egon.moretrees.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
@@ -16,8 +18,10 @@ public class MoreTrees implements ModInitializer {
 
 	@Override
 	public void onInitialize() {
-		ModItemGroups.registerItemGroups();
+		ModEntities.registerModEntities();
+		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
+		ModItemGroups.registerItemGroups();
 
 		StrippableBlockRegistry.register(ModBlocks.CHESTNUT_LOG, ModBlocks.STRIPPED_CHESTNUT_LOG);
 		StrippableBlockRegistry.register(ModBlocks.MAPLE_LOG, ModBlocks.STRIPPED_MAPLE_LOG);

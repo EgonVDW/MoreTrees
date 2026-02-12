@@ -32,6 +32,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CHESTNUT_PRESSURE_PLATE);
                         entries.add(ModBlocks.CHESTNUT_LEAVES);
                         entries.add(ModBlocks.CHESTNUT_SAPLING);
+                        entries.add(ModItems.CHESTNUT_BOAT);
+                        entries.add(ModItems.CHESTNUT_CHEST_BOAT);
 
                         entries.add(ModBlocks.MAPLE_LOG);
                         entries.add(ModBlocks.STRIPPED_MAPLE_LOG);
@@ -48,6 +50,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MAPLE_PRESSURE_PLATE);
                         entries.add(ModBlocks.MAPLE_LEAVES);
                         entries.add(ModBlocks.MAPLE_SAPLING);
+                        entries.add(ModItems.MAPLE_BOAT);
+                        entries.add(ModItems.MAPLE_CHEST_BOAT);
 
                         entries.add(ModBlocks.BEECH_LOG);
                         entries.add(ModBlocks.STRIPPED_BEECH_LOG);
@@ -64,6 +68,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.BEECH_PRESSURE_PLATE);
                         entries.add(ModBlocks.BEECH_LEAVES);
                         entries.add(ModBlocks.BEECH_SAPLING);
+                        entries.add(ModItems.BEECH_BOAT);
+                        entries.add(ModItems.BEECH_CHEST_BOAT);
                     })
                     .build());
 

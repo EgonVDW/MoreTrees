@@ -69,6 +69,11 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.MAPLE_LEAVES)
                 .add(ModBlocks.BEECH_LEAVES);
 
+        valueLookupBuilder(BlockTags.SAPLINGS)
+                .add(ModBlocks.CHESTNUT_SAPLING)
+                .add(ModBlocks.MAPLE_SAPLING)
+                .add(ModBlocks.BEECH_SAPLING);
+
         valueLookupBuilder(BlockTags.PLANKS)
                 .add(ModBlocks.CHESTNUT_PLANKS)
                 .add(ModBlocks.MAPLE_PLANKS)

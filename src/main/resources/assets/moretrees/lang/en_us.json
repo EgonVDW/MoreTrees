@@ -45,6 +45,18 @@
   "block.moretrees.chestnut_sapling": "Chestnut Sapling",
   "block.moretrees.maple_sapling": "Maple Sapling",
   "block.moretrees.beech_sapling": "Beech Sapling",
+  "item.moretrees.maple_boat": "Maple Boat",
+  "item.moretrees.maple_chest_boat": "Maple Boat with Chest",
+  "item.moretrees.chestnut_boat": "Chestnut Boat",
+  "item.moretrees.chestnut_chest_boat": "Chestnut Boat with Chest",
+  "item.moretrees.beech_boat": "Beech Boat",
+  "item.moretrees.beech_chest_boat": "Beech Boat with Chest",
+  "entity.moretrees.maple_boat": "Maple Boat",
+  "entity.moretrees.maple_chest_boat": "Maple Boat with Chest",
+  "entity.moretrees.chestnut_boat": "Chestnut Boat",
+  "entity.moretrees.chestnut_chest_boat": "Chestnut Boat with Chest",
+  "entity.moretrees.beech_boat": "Beech Boat",
+  "entity.moretrees.beech_chest_boat": "Beech Boat with Chest",
   "biome.moretrees.broadleaf_forest": "Broadleaf Forest",
   "biome.moretrees.maple_forest": "Maple Forest"
 }
