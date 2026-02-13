@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "chest_boat",
+  "ingredients": [
+    "minecraft:chest",
+    "moretrees:chestnut_boat"
+  ],
+  "result": {
+    "count": 1,
+    "id": "moretrees:chestnut_chest_boat"
+  }
+}
