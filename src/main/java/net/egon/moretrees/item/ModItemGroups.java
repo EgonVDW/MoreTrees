@@ -22,6 +22,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CHESTNUT_WOOD);
                         entries.add(ModBlocks.STRIPPED_CHESTNUT_WOOD);
                         entries.add(ModBlocks.CHESTNUT_PLANKS);
+                        entries.add(ModItems.CHESTNUT_SIGN);
+                        entries.add(ModItems.CHESTNUT_HANGING_SIGN);
                         entries.add(ModBlocks.CHESTNUT_SLAB);
                         entries.add(ModBlocks.CHESTNUT_STAIRS);
                         entries.add(ModBlocks.CHESTNUT_FENCE);
@@ -40,6 +42,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MAPLE_WOOD);
                         entries.add(ModBlocks.STRIPPED_MAPLE_WOOD);
                         entries.add(ModBlocks.MAPLE_PLANKS);
+                        entries.add(ModItems.MAPLE_SIGN);
+                        entries.add(ModItems.MAPLE_HANGING_SIGN);
                         entries.add(ModBlocks.MAPLE_SLAB);
                         entries.add(ModBlocks.MAPLE_STAIRS);
                         entries.add(ModBlocks.MAPLE_FENCE);
@@ -58,6 +62,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.BEECH_WOOD);
                         entries.add(ModBlocks.STRIPPED_BEECH_WOOD);
                         entries.add(ModBlocks.BEECH_PLANKS);
+                        entries.add(ModItems.BEECH_SIGN);
+                        entries.add(ModItems.BEECH_HANGING_SIGN);
                         entries.add(ModBlocks.BEECH_SLAB);
                         entries.add(ModBlocks.BEECH_STAIRS);
                         entries.add(ModBlocks.BEECH_FENCE);

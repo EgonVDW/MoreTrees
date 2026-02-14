@@ -45,6 +45,22 @@ public class ModModelProvider extends FabricModelProvider {
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.CHESTNUT_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
         blockStateModelGenerator.registerTintableCrossBlockState(ModBlocks.BEECH_SAPLING, BlockStateModelGenerator.CrossType.NOT_TINTED);
 
+        blockStateModelGenerator.registerHangingSign(
+                ModBlocks.STRIPPED_CHESTNUT_LOG,
+                ModBlocks.CHESTNUT_HANGING_SIGN,
+                ModBlocks.CHESTNUT_WALL_HANGING_SIGN
+        );
+        blockStateModelGenerator.registerHangingSign(
+                ModBlocks.STRIPPED_MAPLE_LOG,
+                ModBlocks.MAPLE_HANGING_SIGN,
+                ModBlocks.MAPLE_WALL_HANGING_SIGN
+        );
+        blockStateModelGenerator.registerHangingSign(
+                ModBlocks.STRIPPED_BEECH_LOG,
+                ModBlocks.BEECH_HANGING_SIGN,
+                ModBlocks.BEECH_WALL_HANGING_SIGN
+        );
+
     }
 
     @Override

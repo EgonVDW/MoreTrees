@@ -79,11 +79,14 @@ public class ModBlocks {
     public static final Block BEECH_PRESSURE_PLATE = registerPressurePlateBlock("beech_pressure_plate");
 
     public static final Block CHESTNUT_LEAVES = registerBlock("chestnut_leaves",
-            key -> new TintedParticleLeavesBlock(0.01f, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).registryKey(key)));
+            key -> new FixedColorParticleLeavesBlock(0.01f, 0x285F15,
+                    AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).registryKey(key)));
     public static final Block MAPLE_LEAVES = registerBlock("maple_leaves",
-            key -> new TintedParticleLeavesBlock(0.01f, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).registryKey(key)));
+            key -> new FixedColorParticleLeavesBlock(0.01f, 0xE85D08,
+                    AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).registryKey(key)));
     public static final Block BEECH_LEAVES = registerBlock("beech_leaves",
-            key -> new TintedParticleLeavesBlock(0.01f, AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).registryKey(key)));
+            key -> new FixedColorParticleLeavesBlock(0.01f, 0x3E8C2F,
+                    AbstractBlock.Settings.copy(Blocks.OAK_LEAVES).registryKey(key)));
 
     public static final Block CHESTNUT_SAPLING = registerBlock("chestnut_sapling",
             key -> new SaplingBlock(ModSaplingGenerators.CHESTNUT, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).registryKey(key)));
@@ -91,6 +94,33 @@ public class ModBlocks {
             key -> new SaplingBlock(ModSaplingGenerators.MAPLE, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).registryKey(key)));
     public static final Block BEECH_SAPLING = registerBlock("beech_sapling",
             key -> new SaplingBlock(ModSaplingGenerators.BEECH, AbstractBlock.Settings.copy(Blocks.OAK_SAPLING).registryKey(key)));
+
+    public static final Block CHESTNUT_SIGN = registerBlockWithoutItem("chestnut_sign",
+            key -> new SignBlock(ModWoodTypes.CHESTNUT, AbstractBlock.Settings.copy(Blocks.OAK_SIGN).registryKey(key)));
+    public static final Block CHESTNUT_WALL_SIGN = registerBlockWithoutItem("chestnut_wall_sign",
+            key -> new WallSignBlock(ModWoodTypes.CHESTNUT, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).registryKey(key)));
+    public static final Block CHESTNUT_HANGING_SIGN = registerBlockWithoutItem("chestnut_hanging_sign",
+            key -> new HangingSignBlock(ModWoodTypes.CHESTNUT, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN).registryKey(key)));
+    public static final Block CHESTNUT_WALL_HANGING_SIGN = registerBlockWithoutItem("chestnut_wall_hanging_sign",
+            key -> new WallHangingSignBlock(ModWoodTypes.CHESTNUT, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).registryKey(key)));
+
+    public static final Block MAPLE_SIGN = registerBlockWithoutItem("maple_sign",
+            key -> new SignBlock(ModWoodTypes.MAPLE, AbstractBlock.Settings.copy(Blocks.OAK_SIGN).registryKey(key)));
+    public static final Block MAPLE_WALL_SIGN = registerBlockWithoutItem("maple_wall_sign",
+            key -> new WallSignBlock(ModWoodTypes.MAPLE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).registryKey(key)));
+    public static final Block MAPLE_HANGING_SIGN = registerBlockWithoutItem("maple_hanging_sign",
+            key -> new HangingSignBlock(ModWoodTypes.MAPLE, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN).registryKey(key)));
+    public static final Block MAPLE_WALL_HANGING_SIGN = registerBlockWithoutItem("maple_wall_hanging_sign",
+            key -> new WallHangingSignBlock(ModWoodTypes.MAPLE, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).registryKey(key)));
+
+    public static final Block BEECH_SIGN = registerBlockWithoutItem("beech_sign",
+            key -> new SignBlock(ModWoodTypes.BEECH, AbstractBlock.Settings.copy(Blocks.OAK_SIGN).registryKey(key)));
+    public static final Block BEECH_WALL_SIGN = registerBlockWithoutItem("beech_wall_sign",
+            key -> new WallSignBlock(ModWoodTypes.BEECH, AbstractBlock.Settings.copy(Blocks.OAK_WALL_SIGN).registryKey(key)));
+    public static final Block BEECH_HANGING_SIGN = registerBlockWithoutItem("beech_hanging_sign",
+            key -> new HangingSignBlock(ModWoodTypes.BEECH, AbstractBlock.Settings.copy(Blocks.OAK_HANGING_SIGN).registryKey(key)));
+    public static final Block BEECH_WALL_HANGING_SIGN = registerBlockWithoutItem("beech_wall_hanging_sign",
+            key -> new WallHangingSignBlock(ModWoodTypes.BEECH, AbstractBlock.Settings.copy(Blocks.OAK_WALL_HANGING_SIGN).registryKey(key)));
 
     private static Block registerSlabBlock(String name) {
         return registerBlock(name,
@@ -145,6 +175,13 @@ public class ModBlocks {
         Block registeredBlock = Registry.register(Registries.BLOCK, id, block);
         registerBlockItems(name, registeredBlock);
         return registeredBlock;
+    }
+
+    private static Block registerBlockWithoutItem(String name, Function<RegistryKey<Block>, Block> blockFactory) {
+        Identifier id = Identifier.of(MoreTrees.MOD_ID, name);
+        RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, id);
+        Block block = blockFactory.apply(key);
+        return Registry.register(Registries.BLOCK, id, block);
     }
 
     private static void registerBlockItems(String name, Block block) {

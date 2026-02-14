@@ -2,11 +2,13 @@
 7056c30a504879d549ce789263f1f366ff3808c4 data/minecraft/tags/item/boats.json
 1714c6cf41f641a4c1ee3c4e9bc82a3908d9cc07 data/minecraft/tags/item/chest_boats.json
 b007efb915fd9bcbff1afacecd33281fa5648e78 data/minecraft/tags/item/fence_gates.json
+16c5162b51fd51b8c356d8286efe9d86010b54c7 data/minecraft/tags/item/hanging_signs.json
 11f5140a009da26fe3ebf82cab65d35fc6e9c95e data/minecraft/tags/item/leaves.json
 ded6873d1f1e79345b3de99b60806b8fe38876f1 data/minecraft/tags/item/logs.json
 e3d5f26cf3acaed9ca43226446e54b8518649575 data/minecraft/tags/item/logs_that_burn.json
 c874a411064644546cd03ae2d5c9d30c8748eac6 data/minecraft/tags/item/planks.json
 9b454615a3123215b8f348101ed57d0e539b1363 data/minecraft/tags/item/saplings.json
+c6798777e43275ec40c423169a0e087e7d3b32a7 data/minecraft/tags/item/signs.json
 27c6f4625d3d4b9b034e032da485a6d028f99505 data/minecraft/tags/item/wooden_buttons.json
 0b4704f6e6f88bffd1ac42df994ac07f605cdbe9 data/minecraft/tags/item/wooden_doors.json
 8ec7ec6fcd1c13a14ff6bdc46cee64a9bdea6f14 data/minecraft/tags/item/wooden_fences.json

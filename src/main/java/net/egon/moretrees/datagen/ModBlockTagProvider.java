@@ -132,5 +132,55 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STRIPPED_CHESTNUT_WOOD)
                 .add(ModBlocks.STRIPPED_MAPLE_WOOD)
                 .add(ModBlocks.STRIPPED_BEECH_WOOD);
+
+        valueLookupBuilder(BlockTags.STANDING_SIGNS)
+                .add(ModBlocks.CHESTNUT_SIGN)
+                .add(ModBlocks.MAPLE_SIGN)
+                .add(ModBlocks.BEECH_SIGN);
+
+        valueLookupBuilder(BlockTags.WALL_SIGNS)
+                .add(ModBlocks.CHESTNUT_WALL_SIGN)
+                .add(ModBlocks.MAPLE_WALL_SIGN)
+                .add(ModBlocks.BEECH_WALL_SIGN);
+
+        valueLookupBuilder(BlockTags.SIGNS)
+                .add(ModBlocks.CHESTNUT_SIGN)
+                .add(ModBlocks.MAPLE_SIGN)
+                .add(ModBlocks.BEECH_SIGN)
+                .add(ModBlocks.CHESTNUT_WALL_SIGN)
+                .add(ModBlocks.MAPLE_WALL_SIGN)
+                .add(ModBlocks.BEECH_WALL_SIGN);
+
+        valueLookupBuilder(BlockTags.ALL_SIGNS)
+                .add(ModBlocks.CHESTNUT_SIGN)
+                .add(ModBlocks.MAPLE_SIGN)
+                .add(ModBlocks.BEECH_SIGN)
+                .add(ModBlocks.CHESTNUT_WALL_SIGN)
+                .add(ModBlocks.MAPLE_WALL_SIGN)
+                .add(ModBlocks.BEECH_WALL_SIGN)
+                .add(ModBlocks.CHESTNUT_HANGING_SIGN)
+                .add(ModBlocks.MAPLE_HANGING_SIGN)
+                .add(ModBlocks.BEECH_HANGING_SIGN)
+                .add(ModBlocks.CHESTNUT_WALL_HANGING_SIGN)
+                .add(ModBlocks.MAPLE_WALL_HANGING_SIGN)
+                .add(ModBlocks.BEECH_WALL_HANGING_SIGN);
+
+        valueLookupBuilder(BlockTags.CEILING_HANGING_SIGNS)
+                .add(ModBlocks.CHESTNUT_HANGING_SIGN)
+                .add(ModBlocks.MAPLE_HANGING_SIGN)
+                .add(ModBlocks.BEECH_HANGING_SIGN);
+
+        valueLookupBuilder(BlockTags.WALL_HANGING_SIGNS)
+                .add(ModBlocks.CHESTNUT_WALL_HANGING_SIGN)
+                .add(ModBlocks.MAPLE_WALL_HANGING_SIGN)
+                .add(ModBlocks.BEECH_WALL_HANGING_SIGN);
+
+        valueLookupBuilder(BlockTags.ALL_HANGING_SIGNS)
+                .add(ModBlocks.CHESTNUT_HANGING_SIGN)
+                .add(ModBlocks.MAPLE_HANGING_SIGN)
+                .add(ModBlocks.BEECH_HANGING_SIGN)
+                .add(ModBlocks.CHESTNUT_WALL_HANGING_SIGN)
+                .add(ModBlocks.MAPLE_WALL_HANGING_SIGN)
+                .add(ModBlocks.BEECH_WALL_HANGING_SIGN);
     }
 }

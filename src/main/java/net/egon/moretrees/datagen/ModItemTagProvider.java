@@ -121,5 +121,15 @@ public class ModItemTagProvider extends FabricTagProvider.ItemTagProvider {
                 .add(ModBlocks.CHESTNUT_PRESSURE_PLATE.asItem())
                 .add(ModBlocks.MAPLE_PRESSURE_PLATE.asItem())
                 .add(ModBlocks.BEECH_PRESSURE_PLATE.asItem());
+
+        valueLookupBuilder(ItemTags.SIGNS)
+                .add(ModItems.CHESTNUT_SIGN)
+                .add(ModItems.MAPLE_SIGN)
+                .add(ModItems.BEECH_SIGN);
+
+        valueLookupBuilder(ItemTags.HANGING_SIGNS)
+                .add(ModItems.CHESTNUT_HANGING_SIGN)
+                .add(ModItems.MAPLE_HANGING_SIGN)
+                .add(ModItems.BEECH_HANGING_SIGN);
     }
 }

@@ -45,6 +45,10 @@ dependencies {
 
 processResources {
 	inputs.property "version", project.version
+	// Avoid stale files in build/resources/main (e.g., invalid names from prior runs).
+	doFirst {
+		delete destinationDir
+	}
 
 	filesMatching("fabric.mod.json") {
 		expand "version": inputs.properties.version
@@ -53,6 +57,12 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.release = 21
+}
+
+tasks.withType(JavaExec).configureEach {
+	if (name == "runClient" || name == "runDatagen") {
+		jvmArgs "-Xmx2G"
+	}
 }
 
 java {

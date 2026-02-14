@@ -6,8 +6,10 @@ import net.egon.moretrees.item.ModItemGroups;
 import net.egon.moretrees.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
+import net.minecraft.block.entity.BlockEntityType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,6 +24,8 @@ public class MoreTrees implements ModInitializer {
 		ModItems.registerModItems();
 		ModBlocks.registerModBlocks();
 		ModItemGroups.registerItemGroups();
+
+		registerSignBlocks();
 
 		StrippableBlockRegistry.register(ModBlocks.CHESTNUT_LOG, ModBlocks.STRIPPED_CHESTNUT_LOG);
 		StrippableBlockRegistry.register(ModBlocks.MAPLE_LOG, ModBlocks.STRIPPED_MAPLE_LOG);
@@ -69,5 +73,23 @@ public class MoreTrees implements ModInitializer {
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.CHESTNUT_LEAVES, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.MAPLE_LEAVES, 30, 60);
 		FlammableBlockRegistry.getDefaultInstance().add(ModBlocks.BEECH_LEAVES, 30, 60);
+	}
+
+	private static void registerSignBlocks() {
+		FabricBlockEntityType signType = (FabricBlockEntityType) BlockEntityType.SIGN;
+		signType.addSupportedBlock(ModBlocks.CHESTNUT_SIGN);
+		signType.addSupportedBlock(ModBlocks.CHESTNUT_WALL_SIGN);
+		signType.addSupportedBlock(ModBlocks.MAPLE_SIGN);
+		signType.addSupportedBlock(ModBlocks.MAPLE_WALL_SIGN);
+		signType.addSupportedBlock(ModBlocks.BEECH_SIGN);
+		signType.addSupportedBlock(ModBlocks.BEECH_WALL_SIGN);
+
+		FabricBlockEntityType hangingSignType = (FabricBlockEntityType) BlockEntityType.HANGING_SIGN;
+		hangingSignType.addSupportedBlock(ModBlocks.CHESTNUT_HANGING_SIGN);
+		hangingSignType.addSupportedBlock(ModBlocks.CHESTNUT_WALL_HANGING_SIGN);
+		hangingSignType.addSupportedBlock(ModBlocks.MAPLE_HANGING_SIGN);
+		hangingSignType.addSupportedBlock(ModBlocks.MAPLE_WALL_HANGING_SIGN);
+		hangingSignType.addSupportedBlock(ModBlocks.BEECH_HANGING_SIGN);
+		hangingSignType.addSupportedBlock(ModBlocks.BEECH_WALL_HANGING_SIGN);
 	}
 }

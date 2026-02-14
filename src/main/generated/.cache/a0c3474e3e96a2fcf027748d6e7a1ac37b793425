@@ -1,4 +1,7 @@
 // 1.21.11	-999999999-01-01T00:00:00	More Trees/Tags for minecraft:block
+b0f20237cfe3fc98597d4f917bbc483a0baeafe3 data/minecraft/tags/block/all_hanging_signs.json
+56d5da41a06eb0b56ee186132f1874143107a35b data/minecraft/tags/block/all_signs.json
+16c5162b51fd51b8c356d8286efe9d86010b54c7 data/minecraft/tags/block/ceiling_hanging_signs.json
 b007efb915fd9bcbff1afacecd33281fa5648e78 data/minecraft/tags/block/fence_gates.json
 11f5140a009da26fe3ebf82cab65d35fc6e9c95e data/minecraft/tags/block/leaves.json
 ded6873d1f1e79345b3de99b60806b8fe38876f1 data/minecraft/tags/block/logs.json
@@ -6,6 +9,10 @@ e3d5f26cf3acaed9ca43226446e54b8518649575 data/minecraft/tags/block/logs_that_bur
 b981dd3e474f90bdc61f2d13d51e9e59c16b8499 data/minecraft/tags/block/mineable/axe.json
 c874a411064644546cd03ae2d5c9d30c8748eac6 data/minecraft/tags/block/planks.json
 9b454615a3123215b8f348101ed57d0e539b1363 data/minecraft/tags/block/saplings.json
+4246a110a0dc9fcf69c699a21bd7a7992ec1c718 data/minecraft/tags/block/signs.json
+c6798777e43275ec40c423169a0e087e7d3b32a7 data/minecraft/tags/block/standing_signs.json
+c12cba9a363312d22f445ce7bb34d919dfac4635 data/minecraft/tags/block/wall_hanging_signs.json
+4be39a1b9fd3d6aba55b9be68f267b14ffc27897 data/minecraft/tags/block/wall_signs.json
 27c6f4625d3d4b9b034e032da485a6d028f99505 data/minecraft/tags/block/wooden_buttons.json
 0b4704f6e6f88bffd1ac42df994ac07f605cdbe9 data/minecraft/tags/block/wooden_doors.json
 8ec7ec6fcd1c13a14ff6bdc46cee64a9bdea6f14 data/minecraft/tags/block/wooden_fences.json
