@@ -1,0 +1,22 @@
+{
+  "values": {
+    "moretrees:chestnut_log": {
+      "stripped_block": "moretrees:stripped_chestnut_log"
+    },
+    "moretrees:chestnut_wood": {
+      "stripped_block": "moretrees:stripped_chestnut_wood"
+    },
+    "moretrees:maple_log": {
+      "stripped_block": "moretrees:stripped_maple_log"
+    },
+    "moretrees:maple_wood": {
+      "stripped_block": "moretrees:stripped_maple_wood"
+    },
+    "moretrees:beech_log": {
+      "stripped_block": "moretrees:stripped_beech_log"
+    },
+    "moretrees:beech_wood": {
+      "stripped_block": "moretrees:stripped_beech_wood"
+    }
+  }
+}

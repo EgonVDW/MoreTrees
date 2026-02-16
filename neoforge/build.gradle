@@ -1,0 +1,112 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+    id 'net.neoforged.moddev' version '2.0.140'
+}
+
+base {
+    archivesName = "${project.archives_base_name}-neoforge"
+}
+
+java {
+    toolchain.languageVersion = JavaLanguageVersion.of(21)
+    withSourcesJar()
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs = [
+                    'src/main/resources',
+                    'src/main/generated',
+                    'src/main/templates',
+                    '../common/src/main/resources',
+                    '../fabric/src/main/generated'
+            ]
+        }
+    }
+}
+
+neoForge {
+    version = project.neo_version
+
+    parchment {
+        minecraftVersion = project.parchment_minecraft_version
+        mappingsVersion = project.parchment_mappings_version
+    }
+
+    runs {
+        configureEach {
+            gameDirectory = project.file('../run-neoforge')
+        }
+
+        client {
+            client()
+        }
+
+        server {
+            server()
+            programArgument '--nogui'
+        }
+
+        datagen {
+            clientData()
+            gameDirectory = project.file('../run-neoforge-datagen')
+            programArgument '--mod'
+            programArgument project.mod_id
+            programArgument '--all'
+            programArgument '--output'
+            programArgument project.file('src/main/generated').absolutePath
+            programArgument '--existing'
+            programArgument project.file('../common/src/main/resources').absolutePath
+            programArgument '--existing'
+            programArgument project.file('src/main/resources').absolutePath
+        }
+    }
+
+    mods {
+        "${project.mod_id}" {
+            sourceSet(sourceSets.main)
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+def replaceProperties = [
+        mod_id                 : project.mod_id,
+        mod_name               : project.mod_name,
+        mod_license            : project.mod_license,
+        mod_version            : project.mod_version,
+        mod_authors            : project.mod_authors,
+        mod_description        : project.mod_description,
+        minecraft_version      : project.minecraft_version,
+        minecraft_version_range: project.minecraft_version_range,
+        neo_version            : project.neo_version,
+]
+
+processResources {
+    inputs.properties replaceProperties
+    exclude '**/* 2.*'
+    exclude '**/.DS_Store'
+    filesMatching(['META-INF/neoforge.mods.toml']) {
+        expand replaceProperties
+    }
+}
+
+jar {
+    from('../LICENSE') {
+        rename { "${it}_${project.archives_base_name}" }
+    }
+}
+
+publishing {
+    publications {
+        create('mavenJava', MavenPublication) {
+            artifactId = "${project.archives_base_name}-neoforge"
+            from components.java
+        }
+    }
+}
