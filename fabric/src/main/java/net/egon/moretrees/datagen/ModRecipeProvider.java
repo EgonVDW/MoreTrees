@@ -8,9 +8,13 @@ import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
 import net.minecraft.data.recipe.RecipeExporter;
 import net.minecraft.data.recipe.RecipeGenerator;
+import net.minecraft.recipe.CampfireCookingRecipe;
+import net.minecraft.recipe.RecipeSerializer;
+import net.minecraft.recipe.book.RecipeCategory;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.resource.featuretoggle.FeatureFlags;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 public class ModRecipeProvider extends FabricRecipeProvider {
@@ -44,6 +48,24 @@ public class ModRecipeProvider extends FabricRecipeProvider {
 
                 offerBoatRecipe(ModItems.BEECH_BOAT, ModBlocks.BEECH_PLANKS);
                 offerChestBoatRecipe(ModItems.BEECH_CHEST_BOAT, ModItems.BEECH_BOAT);
+
+                offerSmelting(
+                        List.of(ModItems.CHESTNUT),
+                        RecipeCategory.FOOD,
+                        ModItems.ROASTED_CHESTNUT,
+                        0.35f,
+                        200,
+                        "roasted_chestnut"
+                );
+                offerFoodCookingRecipe(
+                        "roasted_chestnut",
+                        RecipeSerializer.CAMPFIRE_COOKING,
+                        CampfireCookingRecipe::new,
+                        600,
+                        ModItems.CHESTNUT,
+                        ModItems.ROASTED_CHESTNUT,
+                        0.35f
+                );
 
                 generateFamily(ModBlockFamilies.CHESTNUT_FAMILY, FeatureFlags.VANILLA_FEATURES);
                 generateFamily(ModBlockFamilies.MAPLE_FAMILY, FeatureFlags.VANILLA_FEATURES);

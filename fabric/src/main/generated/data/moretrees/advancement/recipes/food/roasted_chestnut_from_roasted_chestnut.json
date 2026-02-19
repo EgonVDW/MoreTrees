@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_chestnut": {
+      "conditions": {
+        "items": [
+          {
+            "items": "moretrees:chestnut"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moretrees:roasted_chestnut_from_roasted_chestnut"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_chestnut"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "moretrees:roasted_chestnut_from_roasted_chestnut"
+    ]
+  }
+}

@@ -34,6 +34,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.CHESTNUT_PRESSURE_PLATE);
                         entries.add(ModBlocks.CHESTNUT_LEAVES);
                         entries.add(ModBlocks.CHESTNUT_SAPLING);
+                        entries.add(ModItems.CHESTNUT);
+                        entries.add(ModItems.ROASTED_CHESTNUT);
                         entries.add(ModItems.CHESTNUT_BOAT);
                         entries.add(ModItems.CHESTNUT_CHEST_BOAT);
 

@@ -3,6 +3,7 @@ package net.egon.moretrees.item;
 import net.egon.moretrees.MoreTreesCommon;
 import net.egon.moretrees.block.ModBlocks;
 import net.egon.moretrees.entity.ModEntities;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.BoatItem;
 import net.minecraft.item.HangingSignItem;
 import net.minecraft.item.Item;
@@ -16,6 +17,9 @@ import net.minecraft.util.Identifier;
 import java.util.function.Function;
 
 public class ModItems {
+    private static final FoodComponent CHESTNUT_FOOD = new FoodComponent(2, 1.2f, false);
+    private static final FoodComponent ROASTED_CHESTNUT_FOOD = new FoodComponent(5, 2.8f, false);
+
     public static final Item MAPLE_BOAT = registerItem("maple_boat",
             settings -> new BoatItem(ModEntities.MAPLE_BOAT, settings.maxCount(1)));
     public static final Item MAPLE_CHEST_BOAT = registerItem("maple_chest_boat",
@@ -45,6 +49,11 @@ public class ModItems {
             settings -> new SignItem(ModBlocks.BEECH_SIGN, ModBlocks.BEECH_WALL_SIGN, settings.maxCount(16)));
     public static final Item BEECH_HANGING_SIGN = registerItem("beech_hanging_sign",
             settings -> new HangingSignItem(ModBlocks.BEECH_HANGING_SIGN, ModBlocks.BEECH_WALL_HANGING_SIGN, settings.maxCount(16)));
+
+    public static final Item CHESTNUT = registerItem("chestnut",
+            settings -> new Item(settings.food(CHESTNUT_FOOD)));
+    public static final Item ROASTED_CHESTNUT = registerItem("roasted_chestnut",
+            settings -> new Item(settings.food(ROASTED_CHESTNUT_FOOD)));
 
     private static Item registerItem(String name, Function<Item.Settings, Item> factory) {
         Identifier id = Identifier.of(MoreTreesCommon.MOD_ID, name);

@@ -7,6 +7,7 @@ import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SignItem;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
@@ -107,6 +108,11 @@ public final class NeoModItems {
             props -> new BoatItem(NeoModEntities.BEECH_BOAT.get(), props.stacksTo(1)));
     public static final DeferredItem<Item> BEECH_CHEST_BOAT = registerItem("beech_chest_boat",
             props -> new BoatItem(NeoModEntities.BEECH_CHEST_BOAT.get(), props.stacksTo(1)));
+
+    public static final DeferredItem<Item> CHESTNUT = registerItem("chestnut",
+            props -> new Item(props.food(new FoodProperties(2, 0.2f, false))));
+    public static final DeferredItem<Item> ROASTED_CHESTNUT = registerItem("roasted_chestnut",
+            props -> new Item(props.food(new FoodProperties(5, 0.6f, false))));
 
     private NeoModItems() {
     }

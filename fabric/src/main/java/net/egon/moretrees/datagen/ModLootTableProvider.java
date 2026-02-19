@@ -4,6 +4,13 @@ import net.egon.moretrees.block.ModBlocks;
 import net.egon.moretrees.item.ModItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider;
+import net.minecraft.enchantment.Enchantments;
+import net.minecraft.loot.LootPool;
+import net.minecraft.loot.LootTable;
+import net.minecraft.loot.condition.TableBonusLootCondition;
+import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.provider.number.ConstantLootNumberProvider;
+import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 
 import java.util.concurrent.CompletableFuture;
@@ -79,8 +86,29 @@ public class ModLootTableProvider extends FabricBlockLootTableProvider {
         addDrop(ModBlocks.MAPLE_SAPLING);
         addDrop(ModBlocks.BEECH_SAPLING);
 
-        addDrop(ModBlocks.CHESTNUT_LEAVES, leavesDrops(ModBlocks.CHESTNUT_LEAVES, ModBlocks.CHESTNUT_SAPLING, 0.0625f));
+        addDrop(ModBlocks.CHESTNUT_LEAVES, chestnutLeavesDrops(ModBlocks.CHESTNUT_LEAVES, ModBlocks.CHESTNUT_SAPLING));
         addDrop(ModBlocks.MAPLE_LEAVES, leavesDrops(ModBlocks.MAPLE_LEAVES, ModBlocks.MAPLE_SAPLING, 0.0625f));
         addDrop(ModBlocks.BEECH_LEAVES, leavesDrops(ModBlocks.BEECH_LEAVES, ModBlocks.BEECH_SAPLING, 0.0625f));
+    }
+
+    private LootTable.Builder chestnutLeavesDrops(net.minecraft.block.Block leaves, net.minecraft.block.Block sapling) {
+        var fortuneEnchantment = registries.getOrThrow(RegistryKeys.ENCHANTMENT).getOrThrow(Enchantments.FORTUNE);
+
+        return leavesDrops(leaves, sapling, 0.0625f).pool(
+                LootPool.builder()
+                        .rolls(ConstantLootNumberProvider.create(1.0f))
+                        .conditionally(createWithoutShearsOrSilkTouchCondition())
+                        .with(addSurvivesExplosionCondition(ModItems.CHESTNUT,
+                                ItemEntry.builder(ModItems.CHESTNUT).conditionally(
+                                        TableBonusLootCondition.builder(
+                                                fortuneEnchantment,
+                                                0.0075f,
+                                                0.008333334f,
+                                                0.009375f,
+                                                0.0125f,
+                                                0.0375f
+                                        )
+                                )))
+        );
     }
 }

@@ -35,6 +35,8 @@ public final class NeoModCreativeTabs {
                         output.accept(NeoModItems.CHESTNUT_PRESSURE_PLATE.get());
                         output.accept(NeoModItems.CHESTNUT_LEAVES.get());
                         output.accept(NeoModItems.CHESTNUT_SAPLING.get());
+                        output.accept(NeoModItems.CHESTNUT.get());
+                        output.accept(NeoModItems.ROASTED_CHESTNUT.get());
                         output.accept(NeoModItems.CHESTNUT_BOAT.get());
                         output.accept(NeoModItems.CHESTNUT_CHEST_BOAT.get());
 
