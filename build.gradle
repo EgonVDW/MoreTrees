@@ -27,14 +27,17 @@ subprojects {
         doLast {
             if (!buildDir.exists()) return
 
-            delete fileTree(buildDir) {
-                include '**/* 2*'
-                include '**/.DS_Store'
+            fileTree(buildDir).visit { details ->
+                def name = details.file.name
+                def duplicateName = name ==~ /.* \d+(\..*)?$/
+                if (duplicateName || name == '.DS_Store') {
+                    delete(details.file)
+                }
             }
 
             // Remove any now-empty duplicate-named directories.
             fileTree(buildDir).visit { details ->
-                if (details.file.isDirectory() && details.file.name.contains(' 2')) {
+                if (details.file.isDirectory() && (details.file.name ==~ /.* \d+$/)) {
                     details.file.deleteDir()
                 }
             }

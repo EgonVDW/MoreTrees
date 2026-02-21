@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "redstone",
+  "key": {
+    "B": "minecraft:bucket",
+    "I": "minecraft:iron_ingot"
+  },
+  "pattern": [
+    "II",
+    " B"
+  ],
+  "result": {
+    "count": 1,
+    "id": "moretrees:maple_sap_collector"
+  }
+}

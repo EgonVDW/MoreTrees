@@ -20,7 +20,7 @@ public class VanillaBiomeParametersMixin {
         if (System.getProperty("fabric-api.datagen") != null) {
             return;
         }
-        // Replace selected temperate forest slots with custom biomes so they generate naturally.
+
         this.commonBiomes[1][2] = ModBiomes.MAPLE_FOREST;
         this.commonBiomes[2][2] = ModBiomes.BROADLEAF_FOREST;
     }

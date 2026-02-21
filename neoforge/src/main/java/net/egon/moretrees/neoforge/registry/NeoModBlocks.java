@@ -1,5 +1,6 @@
 package net.egon.moretrees.neoforge.registry;
 
+import net.egon.moretrees.neoforge.block.MapleSapCollectorBlock;
 import net.egon.moretrees.neoforge.MoreTreesNeoForge;
 import net.minecraft.core.particles.ColorParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
@@ -71,6 +72,11 @@ public final class NeoModBlocks {
             Block::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS));
     public static final DeferredBlock<Block> BEECH_PLANKS = register("beech_planks",
             Block::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS));
+    public static final DeferredBlock<Block> MAPLE_SAP_COLLECTOR = register("maple_sap_collector",
+            MapleSapCollectorBlock::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK)
+                    .noOcclusion()
+                    .requiresCorrectToolForDrops()
+                    .strength(1.5f));
 
     public static final DeferredBlock<Block> CHESTNUT_SLAB = register("chestnut_slab",
             SlabBlock::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_SLAB));

@@ -30,6 +30,7 @@
   "block.moretrees.maple_trapdoor": "Maple Trapdoor",
   "block.moretrees.maple_button": "Maple Button",
   "block.moretrees.maple_pressure_plate": "Maple Pressure Plate",
+  "block.moretrees.maple_sap_collector": "Maple Sap Collector",
   "block.moretrees.beech_planks": "Beech Planks",
   "block.moretrees.beech_slab": "Beech Slab",
   "block.moretrees.beech_stairs": "Beech Stairs",
@@ -65,6 +66,8 @@
   "item.moretrees.beech_chest_boat": "Beech Boat with Chest",
   "item.moretrees.chestnut": "Chestnut",
   "item.moretrees.roasted_chestnut": "Roasted Chestnut",
+  "item.moretrees.maple_sap_bottle": "Maple Sap Bottle",
+  "item.moretrees.maple_syrup_bottle": "Maple Syrup Bottle",
   "item.moretrees.chestnut_sign": "Chestnut Sign",
   "item.moretrees.chestnut_hanging_sign": "Chestnut Hanging Sign",
   "item.moretrees.maple_sign": "Maple Sign",
@@ -81,5 +84,7 @@
   "tag.item.moretrees.maple_logs": "Maple Logs",
   "tag.item.moretrees.beech_logs": "Beech Logs",
   "biome.moretrees.broadleaf_forest": "Broadleaf Forest",
-  "biome.moretrees.maple_forest": "Maple Forest"
+  "biome.moretrees.maple_forest": "Maple Forest",
+  "advancements.moretrees.maple_on_tap.title": "Maple on Tap",
+  "advancements.moretrees.maple_on_tap.description": "Collect maple sap in a bottle."
 }

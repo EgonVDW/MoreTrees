@@ -44,6 +44,7 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MAPLE_WOOD);
                         entries.add(ModBlocks.STRIPPED_MAPLE_WOOD);
                         entries.add(ModBlocks.MAPLE_PLANKS);
+                        entries.add(ModBlocks.MAPLE_SAP_COLLECTOR);
                         entries.add(ModItems.MAPLE_SIGN);
                         entries.add(ModItems.MAPLE_HANGING_SIGN);
                         entries.add(ModBlocks.MAPLE_SLAB);
@@ -56,6 +57,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.MAPLE_PRESSURE_PLATE);
                         entries.add(ModBlocks.MAPLE_LEAVES);
                         entries.add(ModBlocks.MAPLE_SAPLING);
+                        entries.add(ModItems.MAPLE_SAP_BOTTLE);
+                        entries.add(ModItems.MAPLE_SYRUP_BOTTLE);
                         entries.add(ModItems.MAPLE_BOAT);
                         entries.add(ModItems.MAPLE_CHEST_BOAT);
 

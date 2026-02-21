@@ -50,7 +50,12 @@ public class ModBlocks {
             key -> new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).registryKey(key)));
     public static final Block BEECH_PLANKS = registerBlock("beech_planks",
             key -> new Block(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).registryKey(key)));
-
+    public static final Block MAPLE_SAP_COLLECTOR = registerBlock("maple_sap_collector",
+            key -> new MapleSapCollectorBlock(AbstractBlock.Settings.copy(Blocks.IRON_BLOCK)
+                    .nonOpaque()
+                    .requiresTool()
+                    .strength(1.5f)
+                    .registryKey(key)));
     public static final Block CHESTNUT_SLAB = registerSlabBlock("chestnut_slab");
     public static final Block CHESTNUT_STAIRS = registerStairsBlock("chestnut_stairs", CHESTNUT_PLANKS);
     public static final Block CHESTNUT_FENCE = registerFenceBlock("chestnut_fence");

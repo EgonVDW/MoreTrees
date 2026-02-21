@@ -45,6 +45,7 @@ public final class NeoModCreativeTabs {
                         output.accept(NeoModItems.MAPLE_WOOD.get());
                         output.accept(NeoModItems.STRIPPED_MAPLE_WOOD.get());
                         output.accept(NeoModItems.MAPLE_PLANKS.get());
+                        output.accept(NeoModItems.MAPLE_SAP_COLLECTOR.get());
                         output.accept(NeoModItems.MAPLE_SIGN.get());
                         output.accept(NeoModItems.MAPLE_HANGING_SIGN.get());
                         output.accept(NeoModItems.MAPLE_SLAB.get());
@@ -57,6 +58,8 @@ public final class NeoModCreativeTabs {
                         output.accept(NeoModItems.MAPLE_PRESSURE_PLATE.get());
                         output.accept(NeoModItems.MAPLE_LEAVES.get());
                         output.accept(NeoModItems.MAPLE_SAPLING.get());
+                        output.accept(NeoModItems.MAPLE_SAP_BOTTLE.get());
+                        output.accept(NeoModItems.MAPLE_SYRUP_BOTTLE.get());
                         output.accept(NeoModItems.MAPLE_BOAT.get());
                         output.accept(NeoModItems.MAPLE_CHEST_BOAT.get());
 

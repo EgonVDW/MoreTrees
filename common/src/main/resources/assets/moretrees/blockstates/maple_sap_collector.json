@@ -1,0 +1,64 @@
+{
+  "variants": {
+    "facing=north,sap_level=0": {
+      "model": "moretrees:block/maple_sap_collector_0",
+      "y": 270
+    },
+    "facing=east,sap_level=0": {
+      "model": "moretrees:block/maple_sap_collector_0"
+    },
+    "facing=south,sap_level=0": {
+      "model": "moretrees:block/maple_sap_collector_0",
+      "y": 90
+    },
+    "facing=west,sap_level=0": {
+      "model": "moretrees:block/maple_sap_collector_0",
+      "y": 180
+    },
+    "facing=north,sap_level=1": {
+      "model": "moretrees:block/maple_sap_collector_1",
+      "y": 270
+    },
+    "facing=east,sap_level=1": {
+      "model": "moretrees:block/maple_sap_collector_1"
+    },
+    "facing=south,sap_level=1": {
+      "model": "moretrees:block/maple_sap_collector_1",
+      "y": 90
+    },
+    "facing=west,sap_level=1": {
+      "model": "moretrees:block/maple_sap_collector_1",
+      "y": 180
+    },
+    "facing=north,sap_level=2": {
+      "model": "moretrees:block/maple_sap_collector_2",
+      "y": 270
+    },
+    "facing=east,sap_level=2": {
+      "model": "moretrees:block/maple_sap_collector_2"
+    },
+    "facing=south,sap_level=2": {
+      "model": "moretrees:block/maple_sap_collector_2",
+      "y": 90
+    },
+    "facing=west,sap_level=2": {
+      "model": "moretrees:block/maple_sap_collector_2",
+      "y": 180
+    },
+    "facing=north,sap_level=3": {
+      "model": "moretrees:block/maple_sap_collector_3",
+      "y": 270
+    },
+    "facing=east,sap_level=3": {
+      "model": "moretrees:block/maple_sap_collector_3"
+    },
+    "facing=south,sap_level=3": {
+      "model": "moretrees:block/maple_sap_collector_3",
+      "y": 90
+    },
+    "facing=west,sap_level=3": {
+      "model": "moretrees:block/maple_sap_collector_3",
+      "y": 180
+    }
+  }
+}

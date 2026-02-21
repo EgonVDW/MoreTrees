@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 200,
+  "experience": 0.35,
+  "group": "maple_syrup_bottle",
+  "ingredient": "moretrees:maple_sap_bottle",
+  "result": {
+    "id": "moretrees:maple_syrup_bottle"
+  }
+}

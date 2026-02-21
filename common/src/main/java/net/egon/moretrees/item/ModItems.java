@@ -3,11 +3,15 @@ package net.egon.moretrees.item;
 import net.egon.moretrees.MoreTreesCommon;
 import net.egon.moretrees.block.ModBlocks;
 import net.egon.moretrees.entity.ModEntities;
+import net.minecraft.component.type.ConsumableComponent;
 import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.BoatItem;
 import net.minecraft.item.HangingSignItem;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.item.SignItem;
+import net.minecraft.item.consume.UseAction;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
@@ -18,7 +22,8 @@ import java.util.function.Function;
 
 public class ModItems {
     private static final FoodComponent CHESTNUT_FOOD = new FoodComponent(2, 1.2f, false);
-    private static final FoodComponent ROASTED_CHESTNUT_FOOD = new FoodComponent(5, 2.8f, false);
+    private static final FoodComponent ROASTED_CHESTNUT_FOOD = new FoodComponent(5, 4.0f, false);
+    private static final FoodComponent MAPLE_SYRUP_FOOD = new FoodComponent(6, 12.0f, true);
 
     public static final Item MAPLE_BOAT = registerItem("maple_boat",
             settings -> new BoatItem(ModEntities.MAPLE_BOAT, settings.maxCount(1)));
@@ -54,6 +59,16 @@ public class ModItems {
             settings -> new Item(settings.food(CHESTNUT_FOOD)));
     public static final Item ROASTED_CHESTNUT = registerItem("roasted_chestnut",
             settings -> new Item(settings.food(ROASTED_CHESTNUT_FOOD)));
+    public static final Item MAPLE_SAP_BOTTLE = registerItem("maple_sap_bottle",
+            settings -> new Item(settings.maxCount(16)));
+    public static final Item MAPLE_SYRUP_BOTTLE = registerItem("maple_syrup_bottle",
+            settings -> new MapleSyrupBottleItem(settings.maxCount(16)
+                    .food(MAPLE_SYRUP_FOOD, ConsumableComponent.builder()
+                            .useAction(UseAction.DRINK)
+                            .sound(SoundEvents.ITEM_HONEY_BOTTLE_DRINK)
+                            .consumeParticles(false)
+                            .build())
+                    .useRemainder(Items.GLASS_BOTTLE)));
 
     private static Item registerItem(String name, Function<Item.Settings, Item> factory) {
         Identifier id = Identifier.of(MoreTreesCommon.MOD_ID, name);

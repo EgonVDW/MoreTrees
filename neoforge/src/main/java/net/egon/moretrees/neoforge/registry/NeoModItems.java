@@ -1,14 +1,19 @@
 package net.egon.moretrees.neoforge.registry;
 
 import net.egon.moretrees.neoforge.MoreTreesNeoForge;
+import net.egon.moretrees.neoforge.item.MapleSyrupBottleItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.BoatItem;
 import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.HangingSignItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemUseAnimation;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.SignItem;
+import net.minecraft.world.item.component.Consumable;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.sounds.SoundEvents;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredBlock;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -38,6 +43,7 @@ public final class NeoModItems {
     public static final DeferredItem<Item> CHESTNUT_PLANKS = registerBlockItem("chestnut_planks", NeoModBlocks.CHESTNUT_PLANKS);
     public static final DeferredItem<Item> MAPLE_PLANKS = registerBlockItem("maple_planks", NeoModBlocks.MAPLE_PLANKS);
     public static final DeferredItem<Item> BEECH_PLANKS = registerBlockItem("beech_planks", NeoModBlocks.BEECH_PLANKS);
+    public static final DeferredItem<Item> MAPLE_SAP_COLLECTOR = registerBlockItem("maple_sap_collector", NeoModBlocks.MAPLE_SAP_COLLECTOR);
 
     public static final DeferredItem<Item> CHESTNUT_SLAB = registerBlockItem("chestnut_slab", NeoModBlocks.CHESTNUT_SLAB);
     public static final DeferredItem<Item> MAPLE_SLAB = registerBlockItem("maple_slab", NeoModBlocks.MAPLE_SLAB);
@@ -110,9 +116,19 @@ public final class NeoModItems {
             props -> new BoatItem(NeoModEntities.BEECH_CHEST_BOAT.get(), props.stacksTo(1)));
 
     public static final DeferredItem<Item> CHESTNUT = registerItem("chestnut",
-            props -> new Item(props.food(new FoodProperties(2, 0.2f, false))));
+            props -> new Item(props.food(new FoodProperties(2, 1.2f, false))));
     public static final DeferredItem<Item> ROASTED_CHESTNUT = registerItem("roasted_chestnut",
-            props -> new Item(props.food(new FoodProperties(5, 0.6f, false))));
+            props -> new Item(props.food(new FoodProperties(5, 4.0f, false))));
+    public static final DeferredItem<Item> MAPLE_SAP_BOTTLE = registerItem("maple_sap_bottle",
+            props -> new Item(props.stacksTo(16)));
+    public static final DeferredItem<Item> MAPLE_SYRUP_BOTTLE = registerItem("maple_syrup_bottle",
+            props -> new MapleSyrupBottleItem(props.stacksTo(16)
+                    .food(new FoodProperties(6, 12.0f, true), Consumable.builder()
+                            .animation(ItemUseAnimation.DRINK)
+                            .sound(SoundEvents.HONEY_DRINK)
+                            .hasConsumeParticles(false)
+                            .build())
+                    .usingConvertsTo(Items.GLASS_BOTTLE)));
 
     private NeoModItems() {
     }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_maple_sap_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "moretrees:maple_sap_bottle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "moretrees:maple_syrup_bottle_from_smelting_maple_sap_bottle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_maple_sap_bottle"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "moretrees:maple_syrup_bottle_from_smelting_maple_sap_bottle"
+    ]
+  }
+}

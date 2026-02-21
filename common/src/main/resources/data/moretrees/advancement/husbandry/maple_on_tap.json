@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:husbandry/root",
+  "criteria": {
+    "has_maple_sap_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": "moretrees:maple_sap_bottle"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancements.moretrees.maple_on_tap.description"
+    },
+    "frame": "task",
+    "icon": {
+      "count": 1,
+      "id": "moretrees:maple_sap_bottle"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancements.moretrees.maple_on_tap.title"
+    }
+  },
+  "requirements": [
+    [
+      "has_maple_sap_bottle"
+    ]
+  ]
+}

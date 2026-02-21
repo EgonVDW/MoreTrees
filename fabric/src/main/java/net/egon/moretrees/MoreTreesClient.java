@@ -32,6 +32,7 @@ public class MoreTreesClient implements ClientModInitializer {
         BlockRenderLayerMap.putBlock(ModBlocks.CHESTNUT_TRAPDOOR, BlockRenderLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.MAPLE_TRAPDOOR, BlockRenderLayer.CUTOUT);
         BlockRenderLayerMap.putBlock(ModBlocks.BEECH_TRAPDOOR, BlockRenderLayer.CUTOUT);
+        BlockRenderLayerMap.putBlock(ModBlocks.MAPLE_SAP_COLLECTOR, BlockRenderLayer.CUTOUT);
 
         registerLeafColor(LEAVES_TINT_NONE, ModBlocks.CHESTNUT_LEAVES);
         registerLeafColor(LEAVES_TINT_NONE, ModBlocks.BEECH_LEAVES);

@@ -40,6 +40,7 @@ public final class NeoModClientEvents {
             ItemBlockRenderTypes.setRenderLayer(NeoModBlocks.CHESTNUT_TRAPDOOR.get(), ChunkSectionLayer.CUTOUT);
             ItemBlockRenderTypes.setRenderLayer(NeoModBlocks.MAPLE_TRAPDOOR.get(), ChunkSectionLayer.CUTOUT);
             ItemBlockRenderTypes.setRenderLayer(NeoModBlocks.BEECH_TRAPDOOR.get(), ChunkSectionLayer.CUTOUT);
+            ItemBlockRenderTypes.setRenderLayer(NeoModBlocks.MAPLE_SAP_COLLECTOR.get(), ChunkSectionLayer.TRANSLUCENT);
         });
     }
 

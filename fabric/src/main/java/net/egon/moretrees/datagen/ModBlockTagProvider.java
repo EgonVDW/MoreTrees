@@ -64,6 +64,9 @@ public class ModBlockTagProvider extends FabricTagProvider.BlockTagProvider {
                 .add(ModBlocks.STRIPPED_MAPLE_LOG)
                 .add(ModBlocks.STRIPPED_BEECH_LOG);
 
+        valueLookupBuilder(BlockTags.PICKAXE_MINEABLE)
+                .add(ModBlocks.MAPLE_SAP_COLLECTOR);
+
         valueLookupBuilder(BlockTags.LEAVES)
                 .add(ModBlocks.CHESTNUT_LEAVES)
                 .add(ModBlocks.MAPLE_LEAVES)
