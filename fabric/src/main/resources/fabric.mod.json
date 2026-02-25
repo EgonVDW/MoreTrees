@@ -2,14 +2,15 @@
 	"schemaVersion": 1,
 	"id": "moretrees",
 	"version": "${version}",
-	"name": "More Trees",
-	"description": "This mod adds cool new trees!",
+	"name": "MoreTrees",
+	"description": "This mod adds new trees, biomes and more!",
 	"authors": [
 		"EgonVDW"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/EgonVDW/MoreTrees"
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/moretrees",
+		"sources": "https://github.com/EgonVDW/MoreTrees",
+		"issues": "https://github.com/EgonVDW/MoreTrees/issues"
 	},
 	"license": "MIT",
 	"icon": "assets/moretrees/icon.png",
@@ -23,6 +24,9 @@
 		],
 		"fabric-datagen": [
 			"net.egon.moretrees.MoreTreesDataGenerator"
+		],
+		"modmenu": [
+			"net.egon.moretrees.compat.ModMenuCompat"
 		]
 	},
 	"mixins": [
@@ -30,8 +34,8 @@
 	],
 	"depends": {
 		"fabricloader": ">=0.18.4",
-		"minecraft": "~1.21.11",
+		"minecraft": "1.21.11",
 		"java": ">=21",
-		"fabric-api": "*"
+		"fabric-api": ">=0.141.1+1.21.11"
 	}
 }
