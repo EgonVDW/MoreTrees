@@ -1,7 +1,7 @@
 {
 	"required": true,
 	"package": "net.egon.moretrees.mixin",
-	"compatibilityLevel": "JAVA_21",
+	"compatibilityLevel": "JAVA_22",
 	"mixins": [
 		"VanillaBiomeParametersMixin"
 	],

@@ -2,9 +2,9 @@ package net.egon.moretrees.block;
 
 import net.egon.moretrees.MoreTreesCommon;
 import net.fabricmc.fabric.api.object.builder.v1.block.type.WoodTypeBuilder;
-import net.minecraft.block.BlockSetType;
-import net.minecraft.block.WoodType;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.Identifier;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
 
 public final class ModWoodTypes {
     public static final WoodType CHESTNUT = register("chestnut");
@@ -16,6 +16,6 @@ public final class ModWoodTypes {
 
     private static WoodType register(String name) {
         return WoodTypeBuilder.copyOf(WoodType.OAK)
-                .register(Identifier.of(MoreTreesCommon.MOD_ID, name), BlockSetType.OAK);
+                .register(Identifier.fromNamespaceAndPath(MoreTreesCommon.MOD_ID, name), BlockSetType.OAK);
     }
 }
