@@ -1,58 +1,62 @@
 package net.egon.moretrees.entity;
 
 import net.egon.moretrees.MoreTreesCommon;
-import net.egon.moretrees.item.ModItems;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.vehicle.BoatEntity;
-import net.minecraft.entity.vehicle.ChestBoatEntity;
-import net.minecraft.item.Item;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryKey;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.vehicle.boat.Boat;
+import net.minecraft.world.entity.vehicle.boat.ChestBoat;
+import net.minecraft.world.item.Item;
 
 import java.util.function.Supplier;
 
-public class ModEntities {
-    public static final EntityType<BoatEntity> MAPLE_BOAT = registerBoat("maple_boat", () -> ModItems.MAPLE_BOAT);
-    public static final EntityType<ChestBoatEntity> MAPLE_CHEST_BOAT = registerChestBoat("maple_chest_boat", () -> ModItems.MAPLE_CHEST_BOAT);
+public final class ModEntities {
+    public static final EntityType<Boat> MAPLE_BOAT = registerBoat("maple_boat");
+    public static final EntityType<ChestBoat> MAPLE_CHEST_BOAT = registerChestBoat("maple_chest_boat");
 
-    public static final EntityType<BoatEntity> CHESTNUT_BOAT = registerBoat("chestnut_boat", () -> ModItems.CHESTNUT_BOAT);
-    public static final EntityType<ChestBoatEntity> CHESTNUT_CHEST_BOAT = registerChestBoat("chestnut_chest_boat", () -> ModItems.CHESTNUT_CHEST_BOAT);
+    public static final EntityType<Boat> CHESTNUT_BOAT = registerBoat("chestnut_boat");
+    public static final EntityType<ChestBoat> CHESTNUT_CHEST_BOAT = registerChestBoat("chestnut_chest_boat");
 
-    public static final EntityType<BoatEntity> BEECH_BOAT = registerBoat("beech_boat", () -> ModItems.BEECH_BOAT);
-    public static final EntityType<ChestBoatEntity> BEECH_CHEST_BOAT = registerChestBoat("beech_chest_boat", () -> ModItems.BEECH_CHEST_BOAT);
+    public static final EntityType<Boat> BEECH_BOAT = registerBoat("beech_boat");
+    public static final EntityType<ChestBoat> BEECH_CHEST_BOAT = registerChestBoat("beech_chest_boat");
 
-    private static EntityType<BoatEntity> registerBoat(String name, Supplier<Item> itemSupplier) {
-        Identifier id = Identifier.of(MoreTreesCommon.MOD_ID, name);
-        RegistryKey<EntityType<?>> key = RegistryKey.of(RegistryKeys.ENTITY_TYPE, id);
-        EntityType<BoatEntity> type = EntityType.Builder.<BoatEntity>create(
-                        (entityType, world) -> new BoatEntity(entityType, world, itemSupplier),
-                        SpawnGroup.MISC)
-                .dropsNothing()
-                .dimensions(1.375f, 0.5625f)
-                .eyeHeight(0.5625f)
-                .maxTrackingRange(10)
-                .trackingTickInterval(1)
-                .build(key);
-        return Registry.register(Registries.ENTITY_TYPE, id, type);
+    private ModEntities() {
     }
 
-    private static EntityType<ChestBoatEntity> registerChestBoat(String name, Supplier<Item> itemSupplier) {
-        Identifier id = Identifier.of(MoreTreesCommon.MOD_ID, name);
-        RegistryKey<EntityType<?>> key = RegistryKey.of(RegistryKeys.ENTITY_TYPE, id);
-        EntityType<ChestBoatEntity> type = EntityType.Builder.<ChestBoatEntity>create(
-                        (entityType, world) -> new ChestBoatEntity(entityType, world, itemSupplier),
-                        SpawnGroup.MISC)
-                .dropsNothing()
-                .dimensions(1.375f, 0.5625f)
+    private static EntityType<Boat> registerBoat(String name) {
+        Identifier id = Identifier.fromNamespaceAndPath(MoreTreesCommon.MOD_ID, name);
+        ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, id);
+        Supplier<Item> itemSupplier = () -> BuiltInRegistries.ITEM.getValue(id);
+        EntityType<Boat> type = EntityType.Builder.<Boat>of(
+                        (entityType, level) -> new Boat(entityType, level, itemSupplier),
+                        MobCategory.MISC)
+                .noLootTable()
+                .sized(1.375F, 0.5625F)
                 .eyeHeight(0.5625f)
-                .maxTrackingRange(10)
-                .trackingTickInterval(1)
+                .clientTrackingRange(10)
+                .updateInterval(1)
                 .build(key);
-        return Registry.register(Registries.ENTITY_TYPE, id, type);
+        return Registry.register(BuiltInRegistries.ENTITY_TYPE, id, type);
+    }
+
+    private static EntityType<ChestBoat> registerChestBoat(String name) {
+        Identifier id = Identifier.fromNamespaceAndPath(MoreTreesCommon.MOD_ID, name);
+        ResourceKey<EntityType<?>> key = ResourceKey.create(Registries.ENTITY_TYPE, id);
+        Supplier<Item> itemSupplier = () -> BuiltInRegistries.ITEM.getValue(id);
+        EntityType<ChestBoat> type = EntityType.Builder.<ChestBoat>of(
+                        (entityType, level) -> new ChestBoat(entityType, level, itemSupplier),
+                        MobCategory.MISC)
+                .noLootTable()
+                .sized(1.375F, 0.5625F)
+                .eyeHeight(0.5625f)
+                .clientTrackingRange(10)
+                .updateInterval(1)
+                .build(key);
+        return Registry.register(BuiltInRegistries.ENTITY_TYPE, id, type);
     }
 
     public static void registerModEntities() {

@@ -25,22 +25,32 @@ allprojects {
 subprojects {
     tasks.register('purgeDuplicateBuildArtifacts') {
         doLast {
-            if (!buildDir.exists()) return
+            def buildDirectory = layout.buildDirectory.get().asFile
+            if (!buildDirectory.exists()) return
 
-            fileTree(buildDir).visit { details ->
-                def name = details.file.name
-                def duplicateName = name ==~ /.* \d+(\..*)?$/
-                if (duplicateName || name == '.DS_Store') {
-                    delete(details.file)
-                }
+            def duplicateArtifacts = fileTree(buildDirectory).files.findAll { file ->
+                file.exists() && (file.name == '.DS_Store' || file.name ==~ /.* \d+(\..*)?$/)
+            }
+
+            duplicateArtifacts.each { file ->
+                delete(file)
             }
 
             // Remove any now-empty duplicate-named directories.
-            fileTree(buildDir).visit { details ->
-                if (details.file.isDirectory() && (details.file.name ==~ /.* \d+$/)) {
-                    details.file.deleteDir()
+            def duplicateDirectories = []
+            fileTree(buildDirectory).visit { details ->
+                if (details.file.exists() && details.file.isDirectory() && (details.file.name ==~ /.* \d+$/)) {
+                    duplicateDirectories.add(details.file)
                 }
             }
+
+            duplicateDirectories
+                    .sort { left, right -> right.absolutePath <=> left.absolutePath }
+                    .each { directory ->
+                        if (directory.exists()) {
+                            directory.deleteDir()
+                        }
+                    }
         }
     }
 

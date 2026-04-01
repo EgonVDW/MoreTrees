@@ -40,3 +40,4 @@ replay_*.log
 *.jfr
 /run-neoforge/
 /run-neoforge-datagen/
+**/src/main/generated/.cache/

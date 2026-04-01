@@ -6,14 +6,13 @@ import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityType;
 import net.fabricmc.fabric.api.registry.FlammableBlockRegistry;
 import net.fabricmc.fabric.api.registry.StrippableBlockRegistry;
-import net.minecraft.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class MoreTrees implements ModInitializer {
     @Override
     public void onInitialize() {
         MoreTreesCommon.init();
         ModItemGroups.registerItemGroups();
-
         registerSignBlocks();
 
         StrippableBlockRegistry.register(ModBlocks.CHESTNUT_LOG, ModBlocks.STRIPPED_CHESTNUT_LOG);
@@ -65,20 +64,18 @@ public class MoreTrees implements ModInitializer {
     }
 
     private static void registerSignBlocks() {
-        FabricBlockEntityType signType = (FabricBlockEntityType) BlockEntityType.SIGN;
-        signType.addSupportedBlock(ModBlocks.CHESTNUT_SIGN);
-        signType.addSupportedBlock(ModBlocks.CHESTNUT_WALL_SIGN);
-        signType.addSupportedBlock(ModBlocks.MAPLE_SIGN);
-        signType.addSupportedBlock(ModBlocks.MAPLE_WALL_SIGN);
-        signType.addSupportedBlock(ModBlocks.BEECH_SIGN);
-        signType.addSupportedBlock(ModBlocks.BEECH_WALL_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.SIGN).addValidBlock(ModBlocks.CHESTNUT_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.SIGN).addValidBlock(ModBlocks.CHESTNUT_WALL_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.SIGN).addValidBlock(ModBlocks.MAPLE_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.SIGN).addValidBlock(ModBlocks.MAPLE_WALL_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.SIGN).addValidBlock(ModBlocks.BEECH_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.SIGN).addValidBlock(ModBlocks.BEECH_WALL_SIGN);
 
-        FabricBlockEntityType hangingSignType = (FabricBlockEntityType) BlockEntityType.HANGING_SIGN;
-        hangingSignType.addSupportedBlock(ModBlocks.CHESTNUT_HANGING_SIGN);
-        hangingSignType.addSupportedBlock(ModBlocks.CHESTNUT_WALL_HANGING_SIGN);
-        hangingSignType.addSupportedBlock(ModBlocks.MAPLE_HANGING_SIGN);
-        hangingSignType.addSupportedBlock(ModBlocks.MAPLE_WALL_HANGING_SIGN);
-        hangingSignType.addSupportedBlock(ModBlocks.BEECH_HANGING_SIGN);
-        hangingSignType.addSupportedBlock(ModBlocks.BEECH_WALL_HANGING_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.HANGING_SIGN).addValidBlock(ModBlocks.CHESTNUT_HANGING_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.HANGING_SIGN).addValidBlock(ModBlocks.CHESTNUT_WALL_HANGING_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.HANGING_SIGN).addValidBlock(ModBlocks.MAPLE_HANGING_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.HANGING_SIGN).addValidBlock(ModBlocks.MAPLE_WALL_HANGING_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.HANGING_SIGN).addValidBlock(ModBlocks.BEECH_HANGING_SIGN);
+        ((FabricBlockEntityType) BlockEntityType.HANGING_SIGN).addValidBlock(ModBlocks.BEECH_WALL_HANGING_SIGN);
     }
 }

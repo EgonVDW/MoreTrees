@@ -2,138 +2,137 @@ package net.egon.moretrees.block;
 
 import com.mojang.serialization.MapCodec;
 import net.egon.moretrees.item.ModItems;
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.PillarBlock;
-import net.minecraft.block.ShapeContext;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemUsage;
-import net.minecraft.item.Items;
-import net.minecraft.item.ItemPlacementContext;
-import net.minecraft.server.world.ServerWorld;
-import net.minecraft.state.StateManager;
-import net.minecraft.state.property.EnumProperty;
-import net.minecraft.state.property.IntProperty;
-import net.minecraft.state.property.Properties;
-import net.minecraft.util.BlockMirror;
-import net.minecraft.util.BlockRotation;
-import net.minecraft.util.Hand;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.random.Random;
-import net.minecraft.util.hit.BlockHitResult;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.util.shape.VoxelShapes;
-import net.minecraft.world.BlockView;
-import net.minecraft.world.World;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUtils;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Mirror;
+import net.minecraft.world.level.block.Rotation;
+import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.EnumProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.EnumMap;
 import java.util.Map;
 
 public class MapleSapCollectorBlock extends Block {
-    public static final MapCodec<MapleSapCollectorBlock> CODEC = createCodec(MapleSapCollectorBlock::new);
-    public static final EnumProperty<Direction> FACING = Properties.HORIZONTAL_FACING;
-    public static final IntProperty SAP_LEVEL = IntProperty.of("sap_level", 0, 3);
+    public static final MapCodec<MapleSapCollectorBlock> CODEC = simpleCodec(MapleSapCollectorBlock::new);
+    public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final IntegerProperty SAP_LEVEL = IntegerProperty.create("sap_level", 0, 3);
 
     private static final int MAX_SAP_LEVEL = 3;
     private static final int GROWTH_INTERVAL_TICKS = 5 * 60 * 20;
     private static final Map<Direction, VoxelShape> SHAPES_BY_FACING = createShapesByFacing();
 
-    public MapleSapCollectorBlock(AbstractBlock.Settings settings) {
-        super(settings);
-        this.setDefaultState(this.stateManager.getDefaultState()
-                .with(FACING, Direction.NORTH)
-                .with(SAP_LEVEL, 0));
+    public MapleSapCollectorBlock(BlockBehaviour.Properties properties) {
+        super(properties);
+        registerDefaultState(stateDefinition.any()
+                .setValue(FACING, Direction.NORTH)
+                .setValue(SAP_LEVEL, 0));
     }
 
     @Override
-    public MapCodec<? extends MapleSapCollectorBlock> getCodec() {
+    public MapCodec<? extends Block> codec() {
         return CODEC;
     }
 
     @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, SAP_LEVEL);
     }
 
     @Nullable
     @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return this.getDefaultState().with(FACING, ctx.getHorizontalPlayerFacing());
+    public BlockState getStateForPlacement(BlockPlaceContext context) {
+        return defaultBlockState().setValue(FACING, context.getHorizontalDirection());
     }
 
     @Override
-    protected void onBlockAdded(BlockState state, World world, BlockPos pos, BlockState oldState, boolean notify) {
-        if (!world.isClient() && !oldState.isOf(this)) {
-            world.scheduleBlockTick(pos, this, GROWTH_INTERVAL_TICKS);
+    protected void onPlace(BlockState state, Level level, BlockPos pos, BlockState oldState, boolean movedByPiston) {
+        if (!level.isClientSide() && !oldState.is(this)) {
+            level.scheduleTick(pos, this, GROWTH_INTERVAL_TICKS);
         }
     }
 
     @Override
-    protected void scheduledTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (canGenerateSap(state, world, pos) && state.get(SAP_LEVEL) < MAX_SAP_LEVEL) {
-            world.setBlockState(pos, state.with(SAP_LEVEL, state.get(SAP_LEVEL) + 1), Block.NOTIFY_ALL);
+    protected void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
+        if (canGenerateSap(state, level, pos) && state.getValue(SAP_LEVEL) < MAX_SAP_LEVEL) {
+            level.setBlock(pos, state.setValue(SAP_LEVEL, state.getValue(SAP_LEVEL) + 1), Block.UPDATE_ALL);
         }
 
-        world.scheduleBlockTick(pos, this, GROWTH_INTERVAL_TICKS);
+        level.scheduleTick(pos, this, GROWTH_INTERVAL_TICKS);
     }
 
     @Override
-    protected BlockState rotate(BlockState state, BlockRotation rotation) {
-        return state.with(FACING, rotation.rotate(state.get(FACING)));
+    protected BlockState rotate(BlockState state, Rotation rotation) {
+        return state.setValue(FACING, rotation.rotate(state.getValue(FACING)));
     }
 
     @Override
-    protected BlockState mirror(BlockState state, BlockMirror mirror) {
-        return state.rotate(mirror.getRotation(state.get(FACING)));
+    protected BlockState mirror(BlockState state, Mirror mirror) {
+        return state.rotate(mirror.getRotation(state.getValue(FACING)));
     }
 
     @Override
-    protected VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPES_BY_FACING.get(state.get(FACING));
+    protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPES_BY_FACING.get(state.getValue(FACING));
     }
 
     @Override
-    protected VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        return SHAPES_BY_FACING.get(state.get(FACING));
+    protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPES_BY_FACING.get(state.getValue(FACING));
     }
 
     @Override
-    protected ActionResult onUseWithItem(ItemStack stack, BlockState state, World world, BlockPos pos,
-                                         PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!stack.isOf(Items.GLASS_BOTTLE) || state.get(SAP_LEVEL) <= 0) {
-            return ActionResult.PASS;
+    protected InteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos,
+                                          Player player, InteractionHand hand, BlockHitResult hitResult) {
+        if (!stack.is(Items.GLASS_BOTTLE) || state.getValue(SAP_LEVEL) <= 0) {
+            return InteractionResult.PASS;
         }
 
-        if (world.isClient()) {
-            return ActionResult.SUCCESS;
+        if (!level.isClientSide()) {
+            ItemStack sapBottle = new ItemStack(ModItems.MAPLE_SAP_BOTTLE);
+            ItemStack resultStack = ItemUtils.createFilledResult(stack, player, sapBottle);
+            player.setItemInHand(hand, resultStack);
+
+            level.setBlock(pos, state.setValue(SAP_LEVEL, state.getValue(SAP_LEVEL) - 1), Block.UPDATE_ALL);
+            level.playSound(null, pos, SoundEvents.BOTTLE_FILL, SoundSource.BLOCKS, 1.0F, 1.0F);
         }
 
-        ItemStack sapBottle = new ItemStack(ModItems.MAPLE_SAP_BOTTLE);
-        ItemStack resultStack = ItemUsage.exchangeStack(stack, player, sapBottle);
-        player.setStackInHand(hand, resultStack);
-
-        world.setBlockState(pos, state.with(SAP_LEVEL, state.get(SAP_LEVEL) - 1), Block.NOTIFY_ALL);
-        world.playSound(null, pos, SoundEvents.ITEM_BOTTLE_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
-        return ActionResult.SUCCESS;
+        return InteractionResult.SUCCESS;
     }
 
-    private static boolean canGenerateSap(BlockState state, World world, BlockPos pos) {
-        Direction facing = state.get(FACING);
-        BlockPos targetPos = pos.offset(facing);
-        BlockState targetState = world.getBlockState(targetPos);
+    private static boolean canGenerateSap(BlockState state, BlockGetter level, BlockPos pos) {
+        Direction facing = state.getValue(FACING);
+        BlockPos targetPos = pos.relative(facing);
+        BlockState targetState = level.getBlockState(targetPos);
 
-        if (!targetState.isOf(ModBlocks.MAPLE_LOG) && !targetState.isOf(ModBlocks.STRIPPED_MAPLE_LOG)) {
+        if (!targetState.is(ModBlocks.MAPLE_LOG) && !targetState.is(ModBlocks.STRIPPED_MAPLE_LOG)) {
             return false;
         }
 
-        return targetState.contains(PillarBlock.AXIS) && targetState.get(PillarBlock.AXIS) != facing.getAxis();
+        return targetState.hasProperty(RotatedPillarBlock.AXIS) && targetState.getValue(RotatedPillarBlock.AXIS) != facing.getAxis();
     }
 
     private static Map<Direction, VoxelShape> createShapesByFacing() {
@@ -147,16 +146,16 @@ public class MapleSapCollectorBlock extends Block {
     }
 
     private static VoxelShape createBaseShape() {
-        VoxelShape shape = VoxelShapes.empty();
-        shape = VoxelShapes.union(shape, box(9, 0, 6, 13, 1, 10));
-        shape = VoxelShapes.union(shape, box(9, 1, 10, 13, 7, 11));
-        shape = VoxelShapes.union(shape, box(9, 1, 5, 13, 7, 6));
-        shape = VoxelShapes.union(shape, box(13, 1, 6, 14, 7, 10));
-        shape = VoxelShapes.union(shape, box(8, 1, 6, 9, 7, 10));
-        shape = VoxelShapes.union(shape, box(11, 7, 5, 12, 10, 6));
-        shape = VoxelShapes.union(shape, box(11, 7, 10, 12, 10, 11));
-        shape = VoxelShapes.union(shape, box(11, 10, 6, 12, 11, 10));
-        shape = VoxelShapes.union(shape, box(10, 8, 7, 16, 10, 9));
+        VoxelShape shape = Shapes.empty();
+        shape = Shapes.or(shape, shapeBox(9, 0, 6, 13, 1, 10));
+        shape = Shapes.or(shape, shapeBox(9, 1, 10, 13, 7, 11));
+        shape = Shapes.or(shape, shapeBox(9, 1, 5, 13, 7, 6));
+        shape = Shapes.or(shape, shapeBox(13, 1, 6, 14, 7, 10));
+        shape = Shapes.or(shape, shapeBox(8, 1, 6, 9, 7, 10));
+        shape = Shapes.or(shape, shapeBox(11, 7, 5, 12, 10, 6));
+        shape = Shapes.or(shape, shapeBox(11, 7, 10, 12, 10, 11));
+        shape = Shapes.or(shape, shapeBox(11, 10, 6, 12, 11, 10));
+        shape = Shapes.or(shape, shapeBox(10, 8, 7, 16, 10, 9));
         return shape;
     }
 
@@ -165,12 +164,12 @@ public class MapleSapCollectorBlock extends Block {
         VoxelShape rotated = original;
 
         for (int i = 0; i < turns; i++) {
-            VoxelShape[] currentShape = new VoxelShape[] { VoxelShapes.empty() };
+            VoxelShape[] currentShape = new VoxelShape[] { Shapes.empty() };
             VoxelShape source = rotated;
-            source.forEachBox((minX, minY, minZ, maxX, maxY, maxZ) ->
-                    currentShape[0] = VoxelShapes.union(
+            source.forAllBoxes((minX, minY, minZ, maxX, maxY, maxZ) ->
+                    currentShape[0] = Shapes.or(
                             currentShape[0],
-                            VoxelShapes.cuboid(1.0 - maxZ, minY, minX, 1.0 - minZ, maxY, maxX)
+                            Shapes.box(1.0 - maxZ, minY, minX, 1.0 - minZ, maxY, maxX)
                     )
             );
             rotated = currentShape[0];
@@ -179,8 +178,8 @@ public class MapleSapCollectorBlock extends Block {
         return rotated;
     }
 
-    private static VoxelShape box(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
-        return VoxelShapes.cuboid(
+    private static VoxelShape shapeBox(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
+        return Shapes.box(
                 minX / 16.0,
                 minY / 16.0,
                 minZ / 16.0,
