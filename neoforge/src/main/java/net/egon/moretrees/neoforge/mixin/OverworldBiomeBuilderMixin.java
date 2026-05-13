@@ -19,9 +19,10 @@ public class OverworldBiomeBuilderMixin {
 
     @Inject(method = "<init>", at = @At("TAIL"))
     private void moretrees$injectCustomBiomes(CallbackInfo ci) {
-        // NeoForge calls Commands.validate() in dev startup with a vanilla-only biome lookup.
-        // Injecting mod biomes there trips "unreferenced key" checks and crashes startup.
-        if (isCommandValidationBootstrap()) {
+        // NeoForge constructs vanilla-only biome lookups in a few validation flows.
+        // Injecting mod biome keys there trips "unreferenced key" checks before the
+        // full mod-backed worldgen registries are available.
+        if (isVanillaOnlyBiomeLookup()) {
             return;
         }
 
@@ -30,9 +31,12 @@ public class OverworldBiomeBuilderMixin {
         this.MIDDLE_BIOMES[2][2] = NeoModBiomes.BROADLEAF_FOREST;
     }
 
-    private static boolean isCommandValidationBootstrap() {
+    private static boolean isVanillaOnlyBiomeLookup() {
         for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
             if ("net.minecraft.commands.Commands".equals(element.getClassName()) && "validate".equals(element.getMethodName())) {
+                return true;
+            }
+            if ("net.minecraft.client.gui.screens.worldselection.WorldOpenFlows".equals(element.getClassName())) {
                 return true;
             }
         }

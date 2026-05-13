@@ -1,11 +1,11 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_logs": {
+    "has_chestnut": {
       "conditions": {
         "items": [
           {
-            "tag": "moretrees:beech_logs"
+            "items": "moretrees:chestnut"
           }
         ]
       },
@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "moretrees:beech_planks"
+        "recipe": "moretrees:roasted_chestnut_from_smoking_chestnut"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -21,12 +21,12 @@
   "requirements": [
     [
       "has_the_recipe",
-      "has_logs"
+      "has_chestnut"
     ]
   ],
   "rewards": {
     "recipes": [
-      "moretrees:beech_planks"
+      "moretrees:roasted_chestnut_from_smoking_chestnut"
     ]
   }
 }

@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#moretrees:maple_logs"
+            "tag": "moretrees:maple_logs"
           }
         ]
       },

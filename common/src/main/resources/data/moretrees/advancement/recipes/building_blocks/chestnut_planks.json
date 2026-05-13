@@ -5,7 +5,7 @@
       "conditions": {
         "items": [
           {
-            "items": "#moretrees:chestnut_logs"
+            "tag": "moretrees:chestnut_logs"
           }
         ]
       },
